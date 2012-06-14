@@ -1,0 +1,115 @@
+# Translations template for PROJECT.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
+#   <jcarbaugh@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Open Parliaments\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-06-14 16:03-0400\n"
+"PO-Revision-Date: 2012-06-14 20:09+0000\n"
+"Last-Translator: jcarbaugh <jcarbaugh@gmail.com>\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/open-parliaments/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: templates/base.html:23
+msgid "Declaration"
+msgstr "Declaración"
+
+#: templates/base.html:24
+msgid "Networking"
+msgstr "Redes"
+
+#: templates/base.html:25
+msgid "Contact"
+msgstr "Contacto"
+
+#: templates/index.html:5
+msgid ""
+"Welcome to OpeningParliament.org, a forum intended to help connect the "
+"world's civic organizations engaged in monitoring, supporting and opening up"
+" their countries' parliaments and legislative institutions."
+msgstr "Bienvenido a OpeningParliament.org, un foro destinado a ayudar a conectar a las organizaciones cívicas del mundo que participan en la vigilancia, el apoyo y la apertura de los parlamentos de sus países y las instituciones legislativas."
+
+#: templates/index.html:8
+msgid ""
+"Parliamentary monitoring organizations, or “PMOs,” are working to create "
+"strong, open and accountable parliaments, through enhancing citizen "
+"participation in the legislative process and bringing parliaments closer to "
+"the people they represent. OpeningParliament.org provides a forum for "
+"international collaboration on efforts to improve access to parliamentary "
+"information and share experiences and good practices among PMOs. It also "
+"serves as the home of the Declaration on Parliamentary Openness (link to "
+"‘Declaration’ tab), a set of shared principles on the openness and "
+"transparency of parliaments being developed by the PMO community."
+msgstr "Organizaciones parlamentarias de control, o \"PMOS,\" están trabajando para crear parlamentos fuertes, transparentes y responsables, a través de la mejora de la participación ciudadana en el proceso legislativo y los parlamentos acercando a las personas que representan. OpeningParliament.org proporciona un foro para la colaboración internacional en los esfuerzos para mejorar el acceso a la información parlamentaria y compartir experiencias y buenas prácticas entre los órganos normativos. También sirve como el hogar de la Declaración sobre la apertura del Parlamento (enlace a la pestaña \"Declaración\"), un conjunto de principios compartidos en la apertura y la transparencia de los parlamentos está siendo desarrollado por la comunidad PMO."
+
+#: templates/index.html:9
+msgid ""
+"OpeningParliament.org and the Declaration on Parliamentary Openness are "
+"outcomes of a recent conference of PMOs (link to ‘Events’ tab) co-hosted by "
+"the <a href=\"http://www.ndi.org/\">National Democratic Institute</a>, <a "
+"href=\"http://www.sunlightfoundation.com\">the Sunlight Foundation</a>, and "
+"<a href=\"http://www.transparencialegislativa.org/eng/nosotros.asp\">Latin "
+"American Network for Legislative Transparency</a>, in Washington, D.C. The "
+"conference, held from April 30-May 2, 2012, brought together more than 40 "
+"PMOs from 38 countries worldwide to facilitate discussion of international "
+"strategies for improving access to useable parliamentary information and "
+"sharing good practices in advocating for parliamentary transparency and in "
+"monitoring parliamentary performance. The gathering was supported by the <a "
+"href=\"http://www.omidyar.com/\">Omidyar Network</a>, the <a "
+"href=\"http://www.soros.org/\">Open Society Foundation</a>, the <a "
+"href=\"http://www.ned.org/\">National Endowment for Democracy</a> and the <a"
+" href=\"http://mexico.visahq.com/embassy/United-States/\">Embassy of Mexico "
+"to the United States</a>. <a href=\"http://wbi.worldbank.org/wbi/\">The "
+"World Bank Institute</a> also supported the conference and co-hosted a "
+"roundtable at its conclusion. For more information, please see the <a "
+"href=\"http://www.ndi.org/files/PMO-conference-PR-050212.pdf\">joint press "
+"release</a> issued at the conclusion of the conference."
+msgstr "OpeningParliament.org y la Declaración sobre la apertura del Parlamento son los resultados de una reciente conferencia de la OGP (enlace a la pestaña 'Eventos'), co-organizada por el <a href=\"http://www.ndi.org/\">National Democratic Institute</a> , <a href=\"http://www.sunlightfoundation.com\">la Fundación La luz del sol</a> , y la <a href=\"http://www.transparencialegislativa.org/eng/nosotros.asp\">Red Latinoamericana para la Transparencia Legislativa</a> , en Washington, DC La conferencia, celebrada del 30 abril-2 mayo, 2012, reunió a más de 40 AMP de 38 países de todo el mundo para facilitar la discusión de las estrategias internacionales para mejorar el acceso a la información parlamentaria utilizable y el intercambio de buenas prácticas en la promoción de la transparencia parlamentaria y en el seguimiento de la actuación parlamentaria . La reunión fue apoyada por el <a href=\"http://www.omidyar.com/\">Omidyar Network</a> , la <a href=\"http://www.soros.org/\">Fundación Open Society</a> , el <a href=\"http://www.ned.org/\">National Endowment for Democracy</a> y la <a href=\"http://mexico.visahq.com/embassy/United-States/\">Embajada de México en los Estados Unidos</a> . <a href=\"http://wbi.worldbank.org/wbi/\">El Instituto del Banco Mundial</a> también apoya la conferencia y co-organizó una mesa redonda en su conclusión. Para obtener más información, consulte el <a href=\"http://www.ndi.org/files/PMO-conference-PR-050212.pdf\">comunicado de prensa conjunto</a> emitido al término de la conferencia."
+
+#: templates/index.html:12 templates/networking.html:5
+msgid "Events"
+msgstr "Eventos"
+
+#: templates/index.html:16
+msgid "View More Events and See How You Can Participate"
+msgstr "Ver Más Eventos y ver cómo se puede participar"
+
+#: templates/networking.html:13
+msgid "Agenda"
+msgstr "Orden del día"
+
+#: templates/networking.html:14
+msgid "Outcome"
+msgstr "Resultado"
+
+#: templates/networking.html:15
+msgid "Paricipants"
+msgstr "Participantes que deseen"
+
+#: templates/networking.html:28
+msgid "Get Involved"
+msgstr "Participe"
+
+#: templates/networking.html:29
+msgid ""
+"To receive updates about happenings in the parliamentary monitoring "
+"community and to participate in discussions on related issues, please join "
+"the PMO Network Google Group: pmo-network.googlegroup.com"
+msgstr "Para recibir actualizaciones sobre acontecimientos en la comunidad el control parlamentario y participar en debates sobre cuestiones relacionadas, por favor únase a la red de Google PMO Grupo: PMO-network.googlegroup.com"
+
+#: templates/networking.html:31
+msgid ""
+"For more information on regional activities in Latin America, contact the <a"
+" href=\"http://www.transparencialegislativa.org/\">Latin American Network "
+"for Legislative Transparency</a> at: <a "
+"href=\"mailto:info@transparencialegislativa.org\">info@transparencialegislativa.org</a>"
+msgstr "Para obtener más información sobre las actividades regionales en América Latina, en contacto con la <a href=\"http://www.transparencialegislativa.org/\">Red Latinoamericana de Transparencia legislativa</a> en: <a href=\"mailto:info@transparencialegislativa.org\">info@transparencialegislativa.org</a>"

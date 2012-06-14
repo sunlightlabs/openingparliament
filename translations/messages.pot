@@ -1,0 +1,116 @@
+# Translations template for PROJECT.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-06-14 16:03-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: templates/base.html:23
+msgid "Declaration"
+msgstr ""
+
+#: templates/base.html:24
+msgid "Networking"
+msgstr ""
+
+#: templates/base.html:25
+msgid "Contact"
+msgstr ""
+
+#: templates/index.html:5
+msgid ""
+"Welcome to OpeningParliament.org, a forum intended to help connect the "
+"world's civic organizations engaged in monitoring, supporting and opening"
+" up their countries' parliaments and legislative institutions."
+msgstr ""
+
+#: templates/index.html:8
+msgid ""
+"Parliamentary monitoring organizations, or “PMOs,” are working to create "
+"strong, open and accountable parliaments, through enhancing citizen "
+"participation in the legislative process and bringing parliaments closer "
+"to the people they represent. OpeningParliament.org provides a forum for "
+"international collaboration on efforts to improve access to parliamentary"
+" information and share experiences and good practices among PMOs. It also"
+" serves as the home of the Declaration on Parliamentary Openness (link to"
+" ‘Declaration’ tab), a set of shared principles on the openness and "
+"transparency of parliaments being developed by the PMO community."
+msgstr ""
+
+#: templates/index.html:9
+msgid ""
+"OpeningParliament.org and the Declaration on Parliamentary Openness are "
+"outcomes of a recent conference of PMOs (link to ‘Events’ tab) co-hosted "
+"by the <a href=\"http://www.ndi.org/\">National Democratic Institute</a>,"
+" <a href=\"http://www.sunlightfoundation.com\">the Sunlight "
+"Foundation</a>, and <a "
+"href=\"http://www.transparencialegislativa.org/eng/nosotros.asp\">Latin "
+"American Network for Legislative Transparency</a>, in Washington, D.C. "
+"The conference, held from April 30-May 2, 2012, brought together more "
+"than 40 PMOs from 38 countries worldwide to facilitate discussion of "
+"international strategies for improving access to useable parliamentary "
+"information and sharing good practices in advocating for parliamentary "
+"transparency and in monitoring parliamentary performance. The gathering "
+"was supported by the <a href=\"http://www.omidyar.com/\">Omidyar "
+"Network</a>, the <a href=\"http://www.soros.org/\">Open Society "
+"Foundation</a>, the <a href=\"http://www.ned.org/\">National Endowment "
+"for Democracy</a> and the <a href=\"http://mexico.visahq.com/embassy"
+"/United-States/\">Embassy of Mexico to the United States</a>. <a "
+"href=\"http://wbi.worldbank.org/wbi/\">The World Bank Institute</a> also "
+"supported the conference and co-hosted a roundtable at its conclusion. "
+"For more information, please see the <a href=\"http://www.ndi.org/files"
+"/PMO-conference-PR-050212.pdf\">joint press release</a> issued at the "
+"conclusion of the conference."
+msgstr ""
+
+#: templates/index.html:12 templates/networking.html:5
+msgid "Events"
+msgstr ""
+
+#: templates/index.html:16
+msgid "View More Events and See How You Can Participate"
+msgstr ""
+
+#: templates/networking.html:13
+msgid "Agenda"
+msgstr ""
+
+#: templates/networking.html:14
+msgid "Outcome"
+msgstr ""
+
+#: templates/networking.html:15
+msgid "Paricipants"
+msgstr ""
+
+#: templates/networking.html:28
+msgid "Get Involved"
+msgstr ""
+
+#: templates/networking.html:29
+msgid ""
+"To receive updates about happenings in the parliamentary monitoring "
+"community and to participate in discussions on related issues, please "
+"join the PMO Network Google Group: pmo-network.googlegroup.com"
+msgstr ""
+
+#: templates/networking.html:31
+msgid ""
+"For more information on regional activities in Latin America, contact the"
+" <a href=\"http://www.transparencialegislativa.org/\">Latin American "
+"Network for Legislative Transparency</a> at: <a "
+"href=\"mailto:info@transparencialegislativa.org\">info@transparencialegislativa.org</a>"
+msgstr ""
+
