@@ -3,18 +3,18 @@ from functools import wraps
 from flask import Flask, request, render_template, Response
 from flaskext.babel import Babel
 
-DEBUG = True
 LANGUAGES = ('en', 'es')
 
 app = Flask(__name__)
 babel = Babel(app)
+
 
 #
 # authentication stuff
 #
 
 def check_auth(username, password):
-    return DEBUG or (username == 'guest' and password == 'thepassword')
+    return username == 'guest' and password == 'thepassword'
 
 
 def authenticate():
@@ -66,4 +66,5 @@ def networking():
 #
 
 if __name__ == '__main__':
+    DEBUG = True
     app.run(debug=DEBUG, port=8000)
