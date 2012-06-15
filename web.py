@@ -55,6 +55,18 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/contact')
+@requires_auth
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/declaration')
+@requires_auth
+def declaration():
+    return render_template('declaration.html')
+
+
 @app.route('/networking')
 @requires_auth
 def networking():
