@@ -168,3 +168,26 @@ footer li { float: left; margin: 0 50px;}
 [class*="span"] .last { border: none;}
 .callOutBox a:link, .callOutBox a:visited, .callOutBox a:active { color: #95917e; }
 .callOutBox a:hover { color: #C9A706; }
+
+
+.editable:hover {
+	background-color: #FDFDFF;
+	box-shadow: 0 0 20px #D5E3ED;
+	-webkit-background-clip: padding-box;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+
+#wysihtml5-textarea {
+	border: 0;
+	box-shadow: 0 0 10px #999;
+	height: 500px;
+	padding: 0 10px;
+	width: 100%;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+

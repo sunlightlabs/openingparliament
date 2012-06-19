@@ -1,0 +1,21 @@
+h1, h2, h3, h4 { font-weight: normal; color: #635f5c; max-width: 580px;}
+h1 { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 240%; line-height: 30px;}
+h2 { margin-bottom: 30px; font-size: 260%; text-transform: uppercase; line-height: 35px; }
+h3, .h2 { font-family: Georgia, "Times New Roman", Times, serif; margin-bottom: 25px; font-size: 210%; line-height: 29px; text-transform: capitalize; }
+h4, .h3 { font-size: 170%; margin-bottom: 20px; line-height: 25px; text-transform: capitalize;}
+h5, .h4 { font-weight: bold; margin-bottom: 20px; font-size: 140%; line-height: 22px; text-transform: capitalize;}
+h6, .h5 { font-weight: bold; font-size: 125%; margin-bottom: 15px; text-transform: capitalize;}
+
+h1 { width: 276px; height: 30px; margin: 55px 0 15px;}
+h1 a { width: 276px; height: 30px; background: url(../images/logo.png) top left no-repeat; }
+
+p {
+	color: #908B89;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 22px;
+}
+
+a:hover, a:active { outline: none; }
+a, a:active, a:visited { color: #c9a706; text-decoration: none; }
+a:hover { color: #827b78; }

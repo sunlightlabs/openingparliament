@@ -25,10 +25,13 @@
         </ul>
     </div>
     <div class="span6">
-        <h3 class="smallHeader">{% trans %}Get Involved{% endtrans %}</h3>
-        <p>{% trans %}To receive updates about happenings in the parliamentary monitoring community and to participate in discussions on related issues, please join the PMO Network Google Group: pmo-network.googlegroup.com{% endtrans %}</p>
 
-        <p>{% trans %}For more information on regional activities in Latin America, contact the <a href="http://www.transparencialegislativa.org/">Latin American Network for Legislative Transparency</a> at: <a href="mailto:info@transparencialegislativa.org">info@transparencialegislativa.org</a>{% endtrans %}</p>
+        <h3 class="smallHeader">{% trans %}Get Involved{% endtrans %}</h3>
+
+        <div class="editable">
+            {{ content|safe }}
+        </div>
+
     </div>
     <div class="clear"></div>
 {% endblock %}

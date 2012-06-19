@@ -1,0 +1,64 @@
+#wysihtml5-toolbar {
+	box-shadow: 0 0 5px #999;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: 50px;
+	-webkit-background-clip: padding-box;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+#wysihtml5-toolbar .dialog {
+	background-color: #f8f8f7;
+	box-shadow: 0 0 10px #999;
+	display: block;
+	left: 60px;
+	padding: 10px;
+	position: absolute;
+	top: 100px;
+	width: 300px;
+	-webkit-background-clip: padding-box;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+#wysihtml5-toolbar a {
+	display: inline-block;
+	height: 50px;
+	width: 48px;
+	border: 1px solid #ddd;
+}
+
+#wysihtml5-toolbar a.cmd {
+	background-color: #f8f8f7;
+	background-position: center center;
+	background-repeat: no-repeat;
+	text-indent: -999px;
+}
+#wysihtml5-toolbar a.cmd:first-child {
+	-webkit-border-radius: 5px 5px 0 0;
+	   -moz-border-radius: 5px 5px 0 0;
+	        border-radius: 5px 5px 0 0;
+}
+#wysihtml5-toolbar a.cmd:last-child {
+	background-color: red;
+	-webkit-border-radius: 0 0 5px 5px;
+	   -moz-border-radius: 0 0 5px 5px;
+	        border-radius: 0 0 5px 5px;
+}
+#wysihtml5-toolbar a.italic { background-image: url(/static/images/icons/glyphicons_101_italic.png); }
+#wysihtml5-toolbar a.bold { background-image: url(/static/images/icons/glyphicons_102_bold.png); }
+#wysihtml5-toolbar a.link { background-image: url(/static/images/icons/glyphicons_050_link.png); }
+#wysihtml5-toolbar a.list { background-image: url(/static/images/icons/glyphicons_114_list.png); }
+#wysihtml5-toolbar a.blockquote { background-image: url(/static/images/icons/glyphicons_108_left_indent.png); }
+#wysihtml5-toolbar a.save {
+	background-color: #C1E3D4;
+	background-image: url(/static/images/icons/glyphicons_206_ok_2.png);
+}
+#wysihtml5-toolbar a.cancel {
+	background-color: #E3C1D1;
+	background-image: url(/static/images/icons/glyphicons_207_remove_2.png);
+}

@@ -1,9 +1,13 @@
 from functools import wraps
+import os
+import urlparse
 
-from flask import Flask, request, render_template, Response
+from flask import Flask, g, request, render_template, Response
 from flaskext.babel import Babel
+import pymongo
 
 LANGUAGES = ('en', 'es')
+EMPTY_BLOCK = """<br><br>"""
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -31,7 +35,6 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-
 #
 # locale and babel goodness
 #
@@ -44,6 +47,30 @@ def get_locale():
             return lang
     return request.accept_languages.best_match(LANGUAGES)
 
+#
+# request lifecycle
+#
+
+@app.before_request
+def before_request():
+    mongo_uri = os.environ.get('MONGOHQ_URL')
+    if mongo_uri:
+        conn = pymongo.Connection(mongo_uri)
+        db_name = conn.__auth_credentials.keys()[0]
+        g.db = conn[db_name]
+    else:
+        conn = pymongo.Connection()
+        g.db = conn['openingparliament']
+
+@app.teardown_request
+def teardown_request(exception):
+    if hasattr(g, 'db'):
+        g.db.connection.disconnect()
+
+@app.context_processor
+def inject_content():
+    doc = g.db.blocks.find_one({'path': request.path})
+    return {'content': doc.get('content', EMPTY_BLOCK) if doc else EMPTY_BLOCK}
 
 #
 # the good, meaty url handlers
@@ -71,6 +98,25 @@ def declaration():
 @requires_auth
 def networking():
     return render_template('networking.html')
+
+@app.route('/save', methods=['POST'])
+@requires_auth
+def save():
+
+    content = request.form.get('content', '').strip()
+    path = request.form.get('path')
+    if not path:
+        referrer = request.environ.get('HTTP_REFERER')
+        path = urlparse.urlparse(referrer).path
+
+    doc = {
+        'path': path,
+        'content': content,
+    }
+
+    g.db.blocks.update({'path': path}, {"$set": doc}, upsert=True)
+
+    return content
 
 
 #
