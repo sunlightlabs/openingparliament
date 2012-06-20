@@ -56,8 +56,7 @@ def before_request():
     mongo_uri = os.environ.get('MONGOHQ_URL')
     if mongo_uri:
         conn = pymongo.Connection(mongo_uri)
-        db_name = conn.__auth_credentials.keys()[0]
-        g.db = conn[db_name]
+        g.db = conn[os.environ.get('MONGOHQ_DB')]
     else:
         conn = pymongo.Connection()
         g.db = conn['openingparliament']
