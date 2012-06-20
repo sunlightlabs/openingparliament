@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="editable">
-        {{ content|safe }}
+	<div class="span8 fullIndent">
+        <div class="editable">
+            {{ content|safe }}
+        </div>
     </div>
+    <div class="clear"></div>
 {% endblock %}

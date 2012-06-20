@@ -17,7 +17,7 @@
 	left: 60px;
 	padding: 10px;
 	position: absolute;
-	top: 100px;
+	top: 120px;
 	width: 300px;
 	-webkit-background-clip: padding-box;
 	-webkit-border-radius: 5px;
@@ -52,8 +52,19 @@
 #wysihtml5-toolbar a.italic { background-image: url(/static/images/icons/glyphicons_101_italic.png); }
 #wysihtml5-toolbar a.bold { background-image: url(/static/images/icons/glyphicons_102_bold.png); }
 #wysihtml5-toolbar a.link { background-image: url(/static/images/icons/glyphicons_050_link.png); }
+#wysihtml5-toolbar a.img { background-image: url(/static/images/icons/glyphicons_011_camera.png); }
 #wysihtml5-toolbar a.list { background-image: url(/static/images/icons/glyphicons_114_list.png); }
 #wysihtml5-toolbar a.blockquote { background-image: url(/static/images/icons/glyphicons_108_left_indent.png); }
+
+#wysihtml5-toolbar a.heading {
+	color: #000;
+	font-weight: bold;
+	height: 30px;
+	padding: 10px 0 0 0;
+	text-align: center;
+	text-indent: 0;
+}
+
 #wysihtml5-toolbar a.save {
 	background-color: #C1E3D4;
 	background-image: url(/static/images/icons/glyphicons_206_ok_2.png);

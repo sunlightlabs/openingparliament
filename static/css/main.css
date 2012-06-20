@@ -169,6 +169,14 @@ footer li { float: left; margin: 0 50px;}
 .callOutBox a:link, .callOutBox a:visited, .callOutBox a:active { color: #95917e; }
 .callOutBox a:hover { color: #C9A706; }
 
+.content ul,
+.content ol {
+	list-style-type: disc;
+	list-style-position: outside;
+	margin-left: 3em;
+}
+
+.content li { margin-bottom: 1em; }
 
 .editable:hover {
 	background-color: #FDFDFF;
@@ -183,7 +191,11 @@ footer li { float: left; margin: 0 50px;}
 #wysihtml5-textarea {
 	border: 0;
 	box-shadow: 0 0 10px #999;
+	color: #908B89;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
 	height: 500px;
+	line-height: 18px;
 	padding: 0 10px;
 	width: 100%;
 	-webkit-border-radius: 5px;

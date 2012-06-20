@@ -70,7 +70,7 @@ def teardown_request(exception):
 @app.context_processor
 def inject_content():
     doc = g.db.blocks.find_one({'path': request.path})
-    return {'content': doc.get('content', EMPTY_BLOCK) if doc else EMPTY_BLOCK}
+    return {'content': doc.get('content') or EMPTY_BLOCK if doc else EMPTY_BLOCK}
 
 #
 # the good, meaty url handlers
