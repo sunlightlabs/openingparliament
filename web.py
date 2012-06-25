@@ -1,4 +1,5 @@
 from functools import wraps
+import json
 import os
 import urlparse
 
@@ -125,6 +126,14 @@ def declaration():
 @app.route('/networking')
 def networking():
     return render_template('networking.html')
+
+@app.route('/export')
+def export():
+    docs = g.db.blocks.find()
+    content = {
+        'pages': [{'path': d['path'], 'content': d['content']} for d in docs],
+    }
+    return Response(json.dumps(content), content_type='application/json')
 
 @app.route('/login')
 @requires_auth
