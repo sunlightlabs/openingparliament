@@ -1,7 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="span8 fullIndent">
+
+	<div class="span6 fullIndent">
+
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<p class="flash">{{ message }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+		<h3>Contact Us</h3>
+
+        <form action="/contact" method="post">
+        	<ul>
+        		<li>
+        			<label for="id_name" class="required">Name</label>
+        			<input type="text" name="name" id="id_name">
+        		</li>
+        		<li>
+        			<label for="id_email" class="required">Email</label>
+        			<input type="email" name="email" id="id_email">
+        		</li>
+        		<li>
+        			<label for="id_organization">Organization</label>
+        			<input type="text" name="organization" id="id_organization">
+        		</li>
+        		<li>
+        			<label for="id_message" class="required">Message</label>
+        			<textarea name="message" id="id_message"></textarea>
+        		</li>
+        	</ul>
+			<p><small>* denotes a required field</small></p>
+        	<input type="submit" value="Send Message" class="btnish">
+        </form>
+
+    </div>
+    <div class="span6">
         <div class="editable">
             {{ content|safe }}
         </div>

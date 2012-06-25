@@ -1,3 +1,14 @@
+
+.editable:hover {
+	background-color: #FDFDFF;
+	box-shadow: 0 0 20px #D5E3ED;
+	-webkit-background-clip: padding-box;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+
 #wysihtml5-toolbar {
 	box-shadow: 0 0 5px #999;
 	position: fixed;

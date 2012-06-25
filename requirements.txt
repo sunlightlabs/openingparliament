@@ -1,6 +1,7 @@
 Flask
 Flask-Babel
 pymongo
+python-postmark
 gevent
 gunicorn
 newrelic

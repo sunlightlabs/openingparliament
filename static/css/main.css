@@ -67,7 +67,7 @@ a, a:active, a:visited { color: #c9a706; }
 a:hover { color: #827b78; }
 
 nav ul, nav li { margin: 0; }
-small { font-size: 65%; line-height: 130%; margin-top: 5px;}
+small { font-size: 85%; line-height: 130%; margin-top: 5px;}
 strong, th, b { font-weight: bold; }
 td, td img { vertical-align: top; }
 sub { vertical-align: sub; font-size: smaller; line-height:1px;}
@@ -181,16 +181,6 @@ ul.events li { margin: 0 0 0 1em; }
 
 .content li { margin-bottom: 1em; }
 
-.editable:hover {
-	background-color: #FDFDFF;
-	box-shadow: 0 0 20px #D5E3ED;
-	-webkit-background-clip: padding-box;
-	-webkit-border-radius: 5px;
-	   -moz-border-radius: 5px;
-	        border-radius: 5px;
-}
-
-
 #wysihtml5-textarea {
 	border: 0;
 	box-shadow: 0 0 10px #999;
@@ -200,6 +190,59 @@ ul.events li { margin: 0 0 0 1em; }
 	height: 500px;
 	line-height: 18px;
 	padding: 0 10px;
+	width: 100%;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+
+.content form ul { margin: 2em 0 0 0; padding: 0; }
+.content form li { clear: both; list-style: none; margin: 0 0 1.5em 0; padding: 0; }
+.content form label { display: block; margin-bottom: 0.3em; }
+.content form input,
+.content form textarea {
+	border: 1px solid #ccc;
+	box-shadow: 0 0 3px #ddd;
+	font-size: 110%;
+	padding: 5px;
+	width: 70%;
+}
+.content form textarea { height: 160px; width: 100%; }
+.content form input[type=submit] { width: 150px; height: 35px; }
+
+.btnish {
+	background-color: #ebebe9;
+	background-image: -webkit-linear-gradient(top, #fff, #ebebe9 70%);
+	background-image:    -moz-linear-gradient(top, #fff, #ebebe9 70%);
+	background-image:      -o-linear-gradient(top, #fff, #ebebe9 70%);
+	background-image:         linear-gradient(top, #fff, #ebebe9 70%);
+	border: 1px solid #ccc;
+	color: #666;
+	text-shadow: 1px 1px 3px #ccc;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+.btnish:active {
+	background-color: #ccc;
+	background-image: -webkit-linear-gradient(top, #ebebe9 30%, #fff);
+	background-image:    -moz-linear-gradient(top, #ebebe9 30%, #fff);
+	background-image:      -o-linear-gradient(top, #ebebe9 30%, #fff);
+	background-image:         linear-gradient(top, #ebebe9 30%, #fff);
+	text-shadow: -1px -1px 3px #fff;
+}
+
+label.required:after { content: " *"; }
+
+p.flash {
+	background-color: #dff0d8;
+	border: 1px solid #d6e9c6;
+	color: #468847;
+	font-size: 110%;
+	line-height: 1.7em;
+	margin: 0 0 2em 0;
+	padding: 0.5em 1em; 
 	width: 100%;
 	-webkit-border-radius: 5px;
 	   -moz-border-radius: 5px;

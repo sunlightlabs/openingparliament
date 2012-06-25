@@ -8,10 +8,7 @@
     <script type="text/javascript" src="js/jquery-placehold.min.js"></script>
     <script type="text/javascript" src="js/sf.js"></script>
     -->
-    <link rel="stylesheet" href="/static/wysihtml5/css/editor.css">
     <script src="/static/js/jquery-1.7.2.min.js"></script>
-    <script src="/static/wysihtml5/js/advanced.js"></script>
-    <script src="/static/wysihtml5/js/wysihtml5-0.3.0.min.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -44,110 +41,119 @@
         </ul>
         <div class="clear"></div>
     </footer>
-    <div id="wysihtml5-toolbar" style="display: none;">
-        <a data-wysihtml5-command="bold" class="cmd bold">bold</a>
-        <a data-wysihtml5-command="italic" class="cmd italic">italic</a>
-        <a data-wysihtml5-command="createLink" class="cmd link">insert link</a>
-        <a data-wysihtml5-command="insertImage" class="cmd img">insert image</a>
-        <a data-wysihtml5-command="insertUnorderedList" class="cmd list">create list</a>
-        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="blockquote" class="cmd blockquote">blockquote</a>
 
-        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" class="cmd heading">H1</a>
-        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3" class="cmd heading">H2</a>
-        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h4" class="cmd heading">H3</a>
-        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h5" class="cmd heading">H4</a>
+    {% if admin %}
 
-        <a data-wysihtml5-command="save" class="cmd save">save</a>
-        <a data-wysihtml5-command="cancel" class="cmd cancel">cancel</a>
-        <div data-wysihtml5-dialog="createLink" class="dialog" style="display: none;">
-            <label>
-                Link:
-                <input data-wysihtml5-dialog-field="href" value="http://" class="text">
-            </label>
-            <a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+        <link rel="stylesheet" href="/static/wysihtml5/css/editor.css">
+
+        <div id="wysihtml5-toolbar" style="display: none;">
+            <a data-wysihtml5-command="bold" class="cmd bold">bold</a>
+            <a data-wysihtml5-command="italic" class="cmd italic">italic</a>
+            <a data-wysihtml5-command="createLink" class="cmd link">insert link</a>
+            <a data-wysihtml5-command="insertImage" class="cmd img">insert image</a>
+            <a data-wysihtml5-command="insertUnorderedList" class="cmd list">create list</a>
+            <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="blockquote" class="cmd blockquote">blockquote</a>
+
+            <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" class="cmd heading">H1</a>
+            <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3" class="cmd heading">H2</a>
+            <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h4" class="cmd heading">H3</a>
+            <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h5" class="cmd heading">H4</a>
+
+            <a data-wysihtml5-command="save" class="cmd save">save</a>
+            <a data-wysihtml5-command="cancel" class="cmd cancel">cancel</a>
+            <div data-wysihtml5-dialog="createLink" class="dialog" style="display: none;">
+                <label>
+                    Link:
+                    <input data-wysihtml5-dialog-field="href" value="http://" class="text">
+                </label>
+                <a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+            </div>
+            <div data-wysihtml5-dialog="insertImage" class="dialog" style="display: none;">
+                <label>
+                    Image:
+                    <input data-wysihtml5-dialog-field="src" value="http://">
+                </label>
+                <a data-wysihtml5-dialog-action="save">OK</a>
+                <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+            </div>
         </div>
-        <div data-wysihtml5-dialog="insertImage" class="dialog" style="display: none;">
-            <label>
-                Image:
-                <input data-wysihtml5-dialog-field="src" value="http://">
-            </label>
-            <a data-wysihtml5-dialog-action="save">OK</a>
-            <a data-wysihtml5-dialog-action="cancel">Cancel</a>
-        </div>
-    </div>
 
-    <script>
+        <script src="/static/wysihtml5/js/advanced.js"></script>
+        <script src="/static/wysihtml5/js/wysihtml5-0.3.0.min.js"></script>
+        <script>
 
-        $(document).ready(function() {
+            $(document).ready(function() {
 
-            var $toolbar = $('#wysihtml5-toolbar');
-            var editor = null;
+                var $toolbar = $('#wysihtml5-toolbar');
+                var editor = null;
 
-            $('.editable').dblclick(function(ev) {
+                $('.editable').dblclick(function(ev) {
 
-                var $this = $(this);
+                    var $this = $(this);
 
-                var $editor = $('<form><textarea id="wysihtml5-textarea" autofocus></textarea></form>');
-                $editor.find('textarea').html($this.html());
+                    var $editor = $('<form><textarea id="wysihtml5-textarea" autofocus></textarea></form>');
+                    $editor.find('textarea').html($this.html());
 
-                $this.after($editor);
-                $this.hide();
+                    $this.after($editor);
+                    $this.hide();
 
-                editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
-                    toolbar:      "wysihtml5-toolbar",
-                    parserRules:  wysihtml5ParserRules,
-                    style:        true,
-                    stylesheets:  ['/static/css/editor-inline.css']
-                });
-
-                editor.on('save:dialog', function() {
-
-                });
-
-                editor.save = function() {
-
-                    var params = {
-                        path: window.location.pathname,
-                        content: editor.getValue()
-                    }
-                    console.log(params);
-
-                    $.post('/save', params, function(data) {
-                        $this.html(data).show();
-                        $toolbar.hide();
-                        $editor.remove();
+                    editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
+                        toolbar:      "wysihtml5-toolbar",
+                        parserRules:  wysihtml5ParserRules,
+                        style:        true,
+                        stylesheets:  ['/static/css/editor-inline.css']
                     });
 
-                };
+                    editor.on('save:dialog', function() {
 
-                editor.cancel = function() {
-                    $this.show();
-                    $toolbar.hide();
-                    $editor.remove();
-                };
+                    });
 
-                ev.preventDefault();
+                    editor.save = function() {
+
+                        var params = {
+                            path: window.location.pathname,
+                            content: editor.getValue()
+                        }
+                        console.log(params);
+
+                        $.post('/save', params, function(data) {
+                            $this.html(data).show();
+                            $toolbar.hide();
+                            $editor.remove();
+                        });
+
+                    };
+
+                    editor.cancel = function() {
+                        $this.show();
+                        $toolbar.hide();
+                        $editor.remove();
+                    };
+
+                    ev.preventDefault();
+
+                });
+
+                $toolbar.find('a.save').click(function(ev) {
+                    if (editor) {
+                        editor.save();
+                        editor = null;
+                    }
+                    ev.preventDefault();
+                });
+
+                $toolbar.find('a.cancel').click(function(ev) {
+                    if (editor) {
+                        editor.cancel();
+                        editor = null;
+                    }
+                    ev.preventDefault();
+                });
 
             });
 
-            $toolbar.find('a.save').click(function(ev) {
-                if (editor) {
-                    editor.save();
-                    editor = null;
-                }
-                ev.preventDefault();
-            });
+        </script>
 
-            $toolbar.find('a.cancel').click(function(ev) {
-                if (editor) {
-                    editor.cancel();
-                    editor = null;
-                }
-                ev.preventDefault();
-            });
-
-        });
-
-    </script>
+    {% endif %}
 
 </body>

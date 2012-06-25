@@ -2,14 +2,18 @@ from functools import wraps
 import os
 import urlparse
 
-from flask import Flask, g, request, render_template, Response
+from flask import Flask, flash, g, redirect, request, render_template, Response
 from flaskext.babel import Babel
+import postmark
 import pymongo
 
 LANGUAGES = ('en', 'es')
 EMPTY_BLOCK = """<br><br>"""
 
+POSTMARK_KEY = os.environ.get('POSTMARK_KEY', '')
+
 app = Flask(__name__)
+app.secret_key = os.environ.get('FLASK_SECRETKEY', '1234567890')
 babel = Babel(app)
 
 
@@ -18,7 +22,7 @@ babel = Babel(app)
 #
 
 def check_auth(username, password):
-    return username == 'guest' and password == 'thepassword'
+    return username == 'admin' and password == os.environ.get('ADMIN_PASSWORD', '')
 
 
 def authenticate():
@@ -71,32 +75,61 @@ def inject_content():
     doc = g.db.blocks.find_one({'path': request.path})
     return {'content': doc.get('content') or EMPTY_BLOCK if doc else EMPTY_BLOCK}
 
+@app.context_processor
+def inject_admin():
+    print request.authorization
+    return {'admin': True if request.authorization else False}
+
 #
 # the good, meaty url handlers
 #
 
 @app.route('/')
-@requires_auth
 def index():
     return render_template('index.html')
 
 
-@app.route('/contact')
-@requires_auth
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+
+    if request.method == 'POST':
+        
+        msg = "%s <%s>\n" % (request.form['name'], request.form['email'])
+        if request.form['organization']:
+            msg += "%s\n" % request.form['organization']
+        msg += "\n%s\n" % request.form['message']
+
+        kwargs = {
+            'api_key': POSTMARK_KEY,
+            'sender': 'contact@sunlightfoundation.com',
+            'reply_to': '%s' % request.form['email'],
+            'to': 'johnwonderlich@gmail.com, amandelbaum@ndi.org, dswislow@ndi.org, psecchi@directoriolegislativo.org, melissa@fundar.org.mx',
+            'bcc': 'jcarbaugh@sunlightfoundation.com',
+            'subject': '[OpeningParliament.org] contact: %s <%s>' % (request.form['name'], request.form['email']),
+            'text_body': msg,
+        }
+
+        postmark.PMMail(**kwargs).send()
+
+        flash('Your message has been sent. Thank you for contacting us!')
+        return redirect('/contact')
+
     return render_template('contact.html')
 
 
 @app.route('/declaration')
-@requires_auth
 def declaration():
     return render_template('declaration.html')
 
 
 @app.route('/networking')
-@requires_auth
 def networking():
     return render_template('networking.html')
+
+@app.route('/login')
+@requires_auth
+def login():
+    return redirect('/')
 
 @app.route('/save', methods=['POST'])
 @requires_auth
