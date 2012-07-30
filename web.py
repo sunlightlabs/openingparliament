@@ -40,6 +40,7 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
+
 #
 # locale and babel goodness
 #
@@ -51,6 +52,7 @@ def get_locale():
         if lang in LANGUAGES:
             return lang
     return request.accept_languages.best_match(LANGUAGES)
+
 
 #
 # request lifecycle
@@ -66,20 +68,24 @@ def before_request():
         conn = pymongo.Connection()
         g.db = conn['openingparliament']
 
+
 @app.teardown_request
 def teardown_request(exception):
     if hasattr(g, 'db'):
         g.db.connection.disconnect()
+
 
 @app.context_processor
 def inject_content():
     doc = g.db.blocks.find_one({'path': request.path})
     return {'content': doc.get('content') or EMPTY_BLOCK if doc else EMPTY_BLOCK}
 
+
 @app.context_processor
 def inject_admin():
     print request.authorization
     return {'admin': True if request.authorization else False}
+
 
 #
 # the good, meaty url handlers
@@ -94,7 +100,7 @@ def index():
 def contact():
 
     if request.method == 'POST':
-        
+
         msg = "%s <%s>\n" % (request.form['name'], request.form['email'])
         if request.form['organization']:
             msg += "%s\n" % request.form['organization']
@@ -123,9 +129,15 @@ def declaration():
     return render_template('declaration.html')
 
 
+@app.route('/events')
+def events():
+    return render_template('events.html')
+
+
 @app.route('/networking')
 def networking():
     return render_template('networking.html')
+
 
 @app.route('/export')
 def export():
@@ -135,10 +147,12 @@ def export():
     }
     return Response(json.dumps(content), content_type='application/json')
 
+
 @app.route('/login')
 @requires_auth
 def login():
     return redirect('/')
+
 
 @app.route('/save', methods=['POST'])
 @requires_auth
