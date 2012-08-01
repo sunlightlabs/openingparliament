@@ -129,14 +129,14 @@ def declaration():
     return render_template('declaration.html')
 
 
-@app.route('/events')
-def events():
-    return render_template('events.html')
-
-
 @app.route('/networking')
 def networking():
     return render_template('networking.html')
+
+
+@app.route('/organizations')
+def organizations():
+    return render_template('organizations.html')
 
 
 @app.route('/export')

@@ -1,121 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="span8 fullIndent">
-        <h2 class="smallHeader">{% trans %}Participating Organizations{% endtrans %}</h2>
+    <div class="span6 fullIndent">
+        <h2 class="smallHeader">{% trans %}Events{% endtrans %}</h2>
+        <ul class="events">
+            <li style="margin-top: 3em;">
+                <time datetime="" class="published tip" pubdate>September 13 - 15, 2012</time>
+                <span class="title"><a href="http://www.ictparliament.org/WePC2012">World e-Parliament Conference 2012</a></span>
+                <span class="location">Rome, Italy</span>
+            </li>
+            <li style="margin-top: 3em;">
+                <time datetime="" class="published tip" pubdate>September 17 - 22, 2012</time>
+                <span class="title"><a href="http://okfestival.org/">Open Knowledge &amp; Data Festival</a></span>
+                <span class="location">Helsinki Finland</span>
+            </li>
+        </ul>
 
-        <ul class="partners">
-            <li class="clearfix">
-                <img src="/static/images/partners/gong.png" class="logo">
-                <p>
-                    <a href="http://www.gong.hr" class="org">GONG</a>
-                    <span class="location">Croatia</span>
-                </p>
+        <h2 class="smallHeader" style="margin-top: 3em;">{% trans %}Past Events{% endtrans %}</h2>
+        <ul class="events">
+            <li>
+                <time datetime="" class="published tip" pubdate>July 6 - 7, 2012</time>
+                <span class="title"><a href="http://www.lafabriquedelaloi.fr/">Open Legislative Data in Paris: A Conference of the Third Kind with Hacktivists and Academics</a></span>
+                <span class="location">Paris, France</span>
+                <div class="callOutBox">
+                    <ul>
+                        <li><a href="http://www.lafabriquedelaloi.fr/conference/programme/">{% trans %}Agenda{% endtrans %}</a></li>
+                        <li><a href="http://www.lafabriquedelaloi.fr/OLDP/">{% trans %}Outcome{% endtrans %}</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
             </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/okf.png" class="logo">
-                <p>
-                    <a href="http://www.okfn.org" class="org">Open Knowledge Foundation Network (OKFN)</a>
-                    <span class="location">United Kingdom</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/okf.png" class="logo">
-                <p>
-                    <a href="http://www.okfn.de" class="org">Open Knowledge Foundation Deutschland (OKF DE)</a>
-                    <span class="location">Germany</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/parliamentwatch.png" class="logo">
-                <p>
-                    <a href="http://www.abgeordnetenwatch.de" class="org">Parliament Watch</a>
-                    <span class="location">Germany</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/pmg.png" class="logo">
-                <p>
-                    <a href="http://www.pmg.org.za" class="org">Parliamentary Monitoring Group</a>
-                    <span class="location">South Africa</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/synergynet.png" class="logo">
-                <p>
-                    <a href="http://www.synergynet.org.hk" class="org">SynergyNet</a>
-                    <span class="location">Hong Kong</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/tilithuania.png" class="logo">
-                <p>
-                    <a href="http://www.transparency.lt" class="org">Transparency International Lithuania</a>
-                    <span class="location">Lithuania</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/ci.png" class="logo">
-                <p>
-                    <a href="http://www.ciudadanointeligente.org" class="org">Fundación Ciudadano Inteligente</a>
-                    <span class="location">Chile</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/cdt.png" class="logo">
-                <p>
-                    <a href="http://www.cdtmn.org" class="org">Centar za Demokratsku Tranziciju (CDT)</a>
-                    <span class="location">Montenegro</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/cci.png" class="logo">
-                <p>
-                    <a href="http://www.ccibh.org" class="org">Center for Civic Initiatives (CCI)</a>
-                    <span class="location">Bosnia Herzegovina</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/epanstwo.png" class="logo">
-                <p>
-                    <a href="http://www.sejmometr.pl" class="org">Foundation ePaństwo</a>
-                    <span class="location">Poland</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/fefa.png" class="logo">
-                <p>
-                    <a href="http://fefa.org.af" class="org">Free and Fair Elections Foundation, Afghanistan</a>
-                    <span class="location">Afghanistan</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/lalt.png" class="logo">
-                <p>
-                    <a href="http://www.transparencialegislativa.org" class="org">Latin American Network for Legislative Transparency (LALT Network)</a>
-                    <span class="location">Latin America</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/openpolis.png" class="logo">
-                <p>
-                    <a href="http://www.openpolis.it" class="org">Openpolis</a>
-                    <span class="location">Italy</span>
-                </p>
-            </li>
-            <li class="clearfix">
-                <img src="/static/images/partners/sunlight.png" class="logo">
-                <p>
-                    <a href="http://sunlightfoundation.com" class="org">Sunlight Foundation</a>
-                    <span class="location">United States</span>
-                </p>
+            <li>
+                <time datetime="" class="published tip" pubdate>April 30 - May 2, 2012</time>
+                <span class="title"><a href="http://www.ndi.org/node/18544">PMO Leaders Conference: Advocating for Transparent and Democratic Parliaments</a></span>
+                <span class="location">Washington, D.C.</span>
+                <div class="callOutBox">
+                    <ul>
+                        <li><a href="http://www.ndi.org/pmo-agenda-presentations">{% trans %}Agenda{% endtrans %}</a></li>
+                        <li><a href="http://www.ndi.org/PMOs-work-together">{% trans %}Outcome{% endtrans %}</a></li>
+                        <li class="last"><a href="https://docs.google.com/a/ndi.org/spreadsheet/ccc?key=0AkxKzANKOyr9dFBOdkFrUE9ieWo3NWxCWmN5LWsxa1E#gid=0">{% trans %}Participants{% endtrans %}</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
             </li>
         </ul>
 
     </div>
-    <div class="span4">
+    <div class="span6">
 
-        {# <h3 class="smallHeader">{% trans %}Get Involved{% endtrans %}</h3> #}
+        <h3 class="smallHeader">{% trans %}Get Involved{% endtrans %}</h3>
 
         <div class="editable">
             {{ content|safe }}
