@@ -1,0 +1,17 @@
+<ul class="partners">
+    {% for org in orgs %}
+        <li class="clearfix">
+            {% if org.img %}
+                <img src="/static/images/partners/{{ org.img }}" class="logo">
+            {% endif %}
+            <p>
+                <span class="location">{{ org.country }}</span>
+                {% if org.url %}
+                    <a href="{{ org.url }}" class="org">{{ org.name }}</a>
+                {% else %}
+                    <span class="org">{{ org.name }}</span>
+                {% endif %}
+            </p>
+        </li>
+    {% endfor %}
+</ul>
