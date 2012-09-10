@@ -2,9 +2,6 @@
 
 {% block content %}
     <div id="fullColumn" class="feature fullIndent">
-        <p>{% trans %}Welcome to OpeningParliament.org, a forum intended to help connect the world's civic organizations engaged in monitoring, supporting and opening up their countries' parliaments and legislative institutions.{% endtrans %}</p>
-    </div>
-    <div class="span8 fullIndent">
         <ul class="covers clearfix">
             <li>
                 <a href="http://openingparliament.s3.amazonaws.com/docs/declaration/1.0/arabic.pdf">
@@ -32,6 +29,11 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="span8 fullIndent">
+        <div class="feature">
+            <p>{% trans %}Welcome to OpeningParliament.org, a forum intended to help connect the world's civic organizations engaged in monitoring, supporting and opening up their countries' parliaments and legislative institutions.{% endtrans %}</p>
+        </div>
         <div class="editable">
             {{ content|safe }}
         </div>
