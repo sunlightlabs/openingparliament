@@ -265,14 +265,15 @@ ul.partners .location {
 
 ul.covers {
 	list-style: none;
-	margin: 0 0 2em 150px;
+	margin: 0 0 2em 80px;
 	padding: 0;
 }
 ul.covers li { float: left; }
 ul.covers img {
 	border: 1px solid #ddd;
 	margin-right: 10px;
-	width: 100px;
+	width: 130px;
+	height: 165px;
 	-webkit-box-shadow: 0 0 8px #ddd;
 	   -moz-box-shadow: 0 0 8px #ddd;
 	        box-shadow: 0 0 8px #ddd;
