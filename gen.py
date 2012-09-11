@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template
 import codecs
 import csv
 
@@ -17,7 +17,7 @@ with app.test_request_context(''):
     with open('data/organizations.csv') as infile:
 
         orgs = [unicodeit(r) for r in csv.DictReader(infile)]
-        orgs = sorted(orgs, cmp=lambda x, y: cmp(x['country'], y['country']))
+        orgs = sorted(orgs, cmp=lambda x, y: cmp(x['country'] + x['name'], y['country'] + y['name']))
 
         with codecs.open('templates/_orgs.html', 'w', 'utf-8') as outfile:
             outfile.write(render_template('_orgs-template.html', orgs=orgs))
