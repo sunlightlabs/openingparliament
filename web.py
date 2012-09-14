@@ -139,6 +139,11 @@ def organizations():
     return render_template('organizations.html')
 
 
+@app.route('/press')
+def press():
+    return render_template('press.html')
+
+
 @app.route('/export')
 def export():
     docs = g.db.blocks.find()
