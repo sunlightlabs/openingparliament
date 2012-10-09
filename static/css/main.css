@@ -160,10 +160,12 @@ footer li { float: left; margin: 0 50px;}
 #ndiLogo:hover { background: url(../images/logo_ndi.jpg) top left no-repeat; }
 #latinLogo { background: url(../images/logo_latin.jpg) bottom left no-repeat; width: 308px; height: 60px; margin-top: 8px;}
 #latinLogo:hover { background: url(../images/logo_latin.jpg) top left no-repeat;}
-#osfLogo { background: url(../images/logo_osf.jpg) bottom left no-repeat; width: 150px; height: 35px; margin: 40px 0 0 150px;}
+#osfLogo { background: url(../images/logo_osf.jpg) bottom left no-repeat; width: 150px; height: 35px; margin: 40px 0 0 0px;}
 #osfLogo:hover { background: url(../images/logo_osf.jpg) top left no-repeat; }
 #omidyarLogo { background: url(../images/logo_omidyar.jpg) bottom left no-repeat; width: 163px; height: 44px; margin: 35px 0 0 20px;}
 #omidyarLogo:hover { background: url(../images/logo_omidyar.jpg) top left no-repeat; }
+#nedLogo { background: url(../images/logo_ned.png) bottom left no-repeat; width: 220px; height: 51px; margin: 35px 0 0 20px;}
+#nedLogo:hover { background: url(../images/logo_ned.png) top left no-repeat; }
 
 .callOutBox { padding: 5px 10px; margin-top: 15px; background: #f7f6f0; border: 2px solid #f5f3e9; margin-bottom: 40px; }
 .callOutBox li { margin-bottom: 0px; float: left; padding-right: 15px; margin-right: 15px; border-right: 1px solid #e2dfcf; line-height: 15px;}
