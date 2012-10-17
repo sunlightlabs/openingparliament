@@ -25,6 +25,7 @@
             line-height: 29px;
             margin-bottom: 15px;
         }
+        .hentry .entry-title a { color: #635F5C; }
         .hentry header { margin-bottom: 0.5em; }
         .hentry header h1 { width: 100%; }
         .hentry p.link {
@@ -48,12 +49,26 @@
         }
         .hentry .published abbr { border-bottom: 0; }
 
+        .sidebar-module { margin-bottom: 5em; }
+
+        ul.contributors { list-style: none; margin: 0 0 1em 0; padding: 0; }
+        ul.contributors li {
+        	border-bottom: 1px solid #f6f7f2;
+        	margin-bottom: 0;
+        	padding: 1em;
+        }
+        ul.contributors li:hover { background-color: #f6f7f2; border-bottom: 1px solid #ddd; }
+        ul.contributors .contributor { display: block; }
+        ul.contributors .org { color: #908B89; }
+        .blog-contact { padding: 0 1em; }
+
+        .tag_cloud .tag_list li { display: block; float: left; margin-right: 10px; margin-bottom: 10px; }
+
         .pager { height: 80px; }
         .pager .next { float: left; width: 40%; }
         .pager .previous { float: right; width: 40%; text-align: right; }
         .pager a { font-size: 120%; }
     </style>
-    <script src="http://www.openingparliament.org/static/js/jquery-1.7.2.min.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -97,9 +112,7 @@
 
 	                        {block:Title}
 	                            <h1 class="entry-title">
-	                                {block:PermalinkPage}<a href="{Permalink}">{/block:PermalinkPage}
-	                                    {Title}
-	                                {block:PermalinkPage}</a>{/block:PermalinkPage}
+	                                <a href="{Permalink}">{Title}</a>
 	                            </h1>
 	                        {/block:Title}
 
@@ -109,7 +122,7 @@
 	                                <abbr class="value" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}">
 	                                    {Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}
 	                                </abbr></a>
-	                                by {PostAuthorName}
+	                                by <span class="author">{PostAuthorName}</span>
 	                            </p>
 	                        {/block:Date}
 
@@ -240,14 +253,68 @@
 
             </div>
             <div class="span4">
-                <h4 class="smallHeader">Regular Contributors</h4>
-                <p><span class="title">María Baron, LALT Network</span></p>
-                <p><span class="title">Andrew Mandelbaum, NDI</span></p>
-                <p><span class="title">Melissa Ortiz Massó, LALT Network</span></p>
-                <p><span class="title">Daniel Schuman, Sunlight Foundation</span></p>
-                <p><span class="title">Dan Swislow, NDI</span></p>
-                <p><span class="title">John Wonderlich, Sunlight Foundation</span></p>
-                <a class="viewMore" href="http://www.openingparliament.org/contact">Click here to contact the administrators of this blog</a>
+
+	            <div class="sidebar-module clearfix">
+					<h4 class="smallHeader">Tags</h4>
+					<!--Tumblr Tag Cloud [2012-10-17]-->
+					<script type="text/javascript" src="http://rive.rs/javascripts/tumblr.min.js?css=default&amp;minsize=100&amp;maxsize=210"></script>
+				</div>
+
+            	<div class="sidebar-module">
+	                <h4 class="smallHeader">Regular Contributors</h4>
+	                <ul class="contributors">
+	                	<li>
+	                		<a class="contributor"
+	                				data-username=""
+	                				href="http://twitter.com/RedLTL">
+	                			María Baron
+	                		</a>
+	                		<a class="org" href="http://www.transparencialegislativa.org/">LALT Network</a>
+	                	</li>
+	                	<li>
+	                		<a class="contributor"
+	                				data-username=""
+	                				href="http://twitter.com/agm3dc">
+	                			Andrew Mandelbaum
+	                		</a>
+	                		<a class="org" href="http://www.ndi.org/">NDI</a>
+	                	</li>
+	                	<li>
+	                		<a class="contributor"
+	                				data-username=""
+	                				href="http://twitter.com/melamalo">
+	                			Melissa Ortiz Massó
+	                		</a>
+	                		<a class="org" href="http://www.transparencialegislativa.org/">LALT Network</a>
+	                	</li>
+	                	<li>
+	                		<a class="contributor"
+	                				data-username=""
+	                				href="http://twitter.com/danielschuman">
+	                			Daniel Schuman
+	                		</a>
+	                		<a class="org" href="http://sunlightfoundation.com/">Sunlight Foundation</a>
+	                	</li>
+	                	<li>
+	                		<a class="contributor"
+	                				data-username="danswislow"
+	                				href="http://twitter.com/danswislow">
+	                			Dan Swislow
+	                		</a>
+	                		<a class="org" href="http://www.ndi.org/">NDI</a>
+	                	</li>
+	                	<li>
+	                		<a class="contributor"
+	                				data-username=""
+		                			href="http://twitter.com/JohnWonderlich">
+		                		John Wonderlich
+		                	</a>
+	                		<a class="org" href="http://sunlightfoundation.com/">Sunlight Foundation</a>
+	                	</li>
+	                </ul>
+	                <p class="blog-contact"><a href="http://www.openingparliament.org/contact">Click here to contact the administrators</a></p>
+	            </div>
+
             </div>
             <div class="clear"></div>
         </div>
@@ -265,7 +332,31 @@
         <div class="clear"></div>
     </footer>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
 
+    	$().ready(function() {
+    		var users = {};
+    		$('.contributor').each(function(index, elem) {
+    			var $elem = $(elem);
+    			var username = $elem.data('username') || $elem.text();
+    			users[username] = {
+					fullName: $elem.text(),
+					url: $elem.attr('href')
+				};
+    		});
+    		$('.hentry .author').each(function(index, elem) {
+    			var $elem = $(elem);
+    			var user = users[$elem.text()];
+    			if (user) {
+    				var $a = $('<a>')
+    					.attr('href', user.url)
+    					.text(user.fullName);
+    				$elem.empty().append($a);
+    			}
+    		});
+    	});
+    </script>
 
     <script>
         var _gaq = _gaq || [];
