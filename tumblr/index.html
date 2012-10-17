@@ -1,0 +1,280 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="{MetaDescription}">
+    <title>{block:PostTitle}{PostTitle} | {/block:PostTitle}Opening Parliament</title>
+    <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+    <link rel="stylesheet" type="text/css" href="http://www.openingparliament.org/static/css/main.css?201209101605">
+    <style>
+        .query-or-tag {
+            border-bottom: 1px solid #F5F5F2;
+            font-size: 140%;
+            padding-bottom: 0.3em;
+        }
+        .hentry {
+            border-bottom: 1px solid #F5F5F2;
+            margin-bottom: 4em;
+            padding-bottom: 1em;
+        }
+        .hentry .entry-title {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 210%;
+            line-height: 29px;
+            margin-bottom: 25px;
+        }
+        .hentry p.link {
+            border-left: 1px solid #F5F5F2;
+            font-size: 120%;
+            margin: 1em 0;
+            padding-left: 1em;
+            text-decoration: underline;
+        }
+        .hentry a[rel=tag] {
+            background-color: #f6f7f2;
+            border: 1px solid #eee;
+            float: left;
+            font-size: 90%;
+            margin-right: 0.5em;
+            padding: 0.3em 1em;
+            -webkit-border-radius: 5px;
+               -moz-border-radius: 5px;
+                    border-radius: 5px;
+        }
+        .hentry .published abbr { border-bottom: 0; }
+    </style>
+    <script src="http://www.openingparliament.org/static/js/jquery-1.7.2.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1 class="fullIndent">
+                <a class="textReplace" href="http://www.openingparliament.org/">OpeningParliament.org</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li id="blog"><a href="http://blog.openingparliament.org/">Blog</a></li>
+                    <li id="declaration"><a href="http://www.openingparliament.org/declaration">Declaration</a></li>
+                    <li id="networking"><a href="http://www.openingparliament.org/networking">Networking</a></li>
+                    <li id="organizations"><a href="http://www.openingparliament.org/organizations">Supporting Organizations</a></li>
+                    <li id="contact"><a href="http://www.openingparliament.org/press">Press</a></li>
+                    <li id="contact"><a href="http://www.openingparliament.org/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+
+            <div class="span8 fullIndent">
+
+                {block:SearchPage}
+                    <p class="query-or-tag">Found {SearchResultCount} results for "{SearchQuery}"</p>
+                    {block:NoSearchResults}
+                        <p>Sorry, no posts found!</p>
+                    {/block:NoSearchResults}
+                {/block:SearchPage}
+
+                {block:TagPage}
+                    <p class="query-or-tag">Posts tagged "{Tag}"</p>
+                {/block:TagPage}
+
+                {block:Posts}
+                    <article id="{PostID}" class="hentry clearfix">
+
+                        {block:Title}
+                            <h1 class="entry-title">
+                                {block:PermalinkPage}<a href="{Permalink}">{/block:PermalinkPage}
+                                    {Title}
+                                {block:PermalinkPage}</a>{/block:PermalinkPage}
+                            </h1>
+                        {/block:Title}
+
+                        <div class="entry-content {PostType}">
+
+                            {block:Text}
+                                {Body}
+                            {/block:Text}
+
+                            {block:Photo}
+                                {LinkOpenTag}
+                                    <img src="{PhotoURL-500}" alt="{PhotoAlt}">
+                                {LinkCloseTag}
+                                {block:Caption}
+                                    <div class="caption">
+                                        {Caption}
+                                    </div>
+                                {/block:Caption}
+                            {/block:Photo}
+
+                            {block:Photoset}
+                                {Photoset-500}
+                                {block:Caption}
+                                    <div class="caption">
+                                        {Caption}
+                                    </div>
+                                {/block:Caption}
+                            {/block:Photoset}
+
+                            {block:Quote}
+                                <blockquote>{Quote}</blockquote>
+                                {block:Source}
+                                    {Source}
+                                {/block:Source}
+                            {/block:Quote}
+
+                            {block:Link}
+                                <p class="link"><a href="{URL}" class="external">{Name}</a></p>
+                                {block:Description}
+                                    {Description}
+                                {/block:Description}
+                            {/block:Link}
+
+                            {block:Chat}
+                                <ul>
+                                    {block:Lines}
+                                        <li>
+                                            {block:Label}
+                                                {Label}
+                                            {/block:Label}
+                                            {Name}
+                                            {Line}
+                                        </li>
+                                    {/block:Lines}
+                                </ul>
+                            {/block:Chat}
+
+                            {block:Audio}
+                                <p>Ooooh. I didn't do this one yet</p>
+                            {/block:Audio}
+
+                            {block:Video}
+                                {Video-500}
+                                {block:Caption}
+                                    <div class="caption">
+                                        {Caption}
+                                    </div>
+                                {/block:Caption}
+                            {/block:Video}
+
+                            {block:Answer}
+                                <p>{Asker} asks...</p>
+                                <blockquote><p>{Question}</p></blockquote>
+                                {Answer}
+                            {/block:Answer}
+
+                        </div>
+
+                        <div class="meta row" data-permalink="{Permalink}">
+                            {block:Date}
+                                <p>Posted <a href="{Permalink}" rel="bookmark" class="published">
+                                    <abbr class="value" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}">
+                                        {Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}
+                                    </abbr>
+                                </a></p>
+                            {/block:Date}
+                            {block:ContentSource}
+                                <p>Originally posted by <a href="{SourceURL}">{SourceTitle}</a></p>
+                            {/block:ContentSource}
+                            <p>
+                                {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a> and {/block:NoteCount}
+                                <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+                            </p>
+                            {block:HasTags}
+                                {block:Tags}
+                                    <a href="{TagURL}" rel="tag">{Tag}</a></li>
+                                {/block:Tags}
+                            {/block:HasTags}
+                        </div>
+
+                        {block:PermalinkPage}
+
+                            {block:PostNotes}
+                                <div id="notes">
+                                    {PostNotes}
+                                </div>
+                            {/block:PostNotes}
+
+                            <div id="disqus_thread"></div>
+
+                        {/block:PermalinkPage}
+
+                    </article>
+
+                {/block:Posts}
+
+                {block:Pagination}
+                    <div class="pager">
+                        <div class="previous">
+                            {block:PreviousPage}
+                                <a href="{PreviousPage}">Newer</a>
+                            {/block:PreviousPage}
+                        </div>
+                        <div class="next">
+                            {block:NextPage}
+                                <a href="{NextPage}">Older</a>
+                            {/block:NextPage}
+                        </div>
+                    </div>
+                {/block:Pagination}
+
+            </div>
+            <div class="span4">
+                <h4 class="smallHeader">Events</h4>
+                <time datetime="" class="published tip" pubdate>September 13 - 15, 2012</time>
+                <span class="title">World e-Parliament Conference 2012</span>
+                <span class="location">Rome, Italy</span>
+                <a class="viewMore" href="http://www.openingparliament.org/networking">View More Events and See How You Can Participate</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a class="textReplace" id="foundationLogo" href="http://www.sunlightfoundation.com">Sunlight Foundation</a></li>
+            <li><a class="textReplace" id="ndiLogo" href="http://www.ndi.org/">National Democratic Institute</a></li>
+            <li><a class="textReplace" id="latinLogo" href="http://www.transparencialegislativa.org/eng/nosotros.asp">Latin American Network for Legislative Transparency</a></li>
+            <li class="clear"><a class="textReplace" href="http://www.soros.org/" id="osfLogo">Open Society Foundation</a></li>
+            <li><a class="textReplace" href="http://www.omidyar.com/" id="omidyarLogo">Omidyar Network</a></li>
+            <li><a class="textReplace" href="http://www.ned.org/" id="nedLogo">National Endowment for Democracy</a></li>
+        </ul>
+        <div class="clear"></div>
+    </footer>
+
+
+
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22821126-21']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script>
+        var _sf_async_config={uid:980,domain:"openingparliament.org"};
+        (function(){
+          function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src',
+               (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+               "js/chartbeat.js");
+            document.body.appendChild(e);
+          }
+          var oldonload = window.onload;
+          window.onload = (typeof window.onload != 'function') ?
+             loadChartbeat : function() { oldonload(); loadChartbeat(); };
+        })();
+    </script>
+
+</body>
