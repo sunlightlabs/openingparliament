@@ -7,11 +7,14 @@ from flask import Flask, flash, g, redirect, request, render_template, Response
 from flaskext.babel import Babel
 import postmark
 import pymongo
+import requests
 
 LANGUAGES = ('en', 'es')
 EMPTY_BLOCK = """<br><br>"""
 
 POSTMARK_KEY = os.environ.get('POSTMARK_KEY', '')
+
+SCARY_CACHE = {}
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRETKEY', '1234567890')
@@ -177,6 +180,24 @@ def save():
     g.db.blocks.update({'path': path}, {"$set": doc}, upsert=True)
 
     return content
+
+
+#
+# scary RSS proxy method
+#
+
+@app.route('/rss')
+def rss():
+
+    url = "http://blog.openingparliament.org/rss"
+
+    doc = SCARY_CACHE.get(url)
+    if not doc:
+        resp = requests.get(url)
+        doc = resp.text
+        SCARY_CACHE[url] = doc
+
+    return Response(doc, content_type="text/xml")
 
 
 #

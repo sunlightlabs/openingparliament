@@ -280,3 +280,9 @@ ul.covers img {
 	   -moz-box-shadow: 0 0 8px #ddd;
 	        box-shadow: 0 0 8px #ddd;
 }
+
+.sidebar .module {
+	margin-bottom: 3em;
+}
+
+#recent-posts { list-style: none; margin: 0; padding: 0; }

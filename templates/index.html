@@ -38,12 +38,47 @@
             {{ content|safe }}
         </div>
     </div>
-    <div class="span4">
-        <h4 class="smallHeader">{% trans %}Events{% endtrans %}</h4>
-        <time datetime="" class="published tip" pubdate>September 13 - 15, 2012</time>
-        <span class="title">World e-Parliament Conference 2012</span>
-        <span class="location">Rome, Italy</span>
-        <a class="viewMore" href="/networking">{% trans %}View More Events and See How You Can Participate{% endtrans %}</a>
+    <div class="span4 sidebar">
+
+    	<div class="module">
+    		<h4 class="smallHeader">{% trans %}Recent blog posts{% endtrans %}</h4>
+    		<ul id="recent-posts">
+    		</ul>
+    	</div>
+
+    	<!--
+    	<div class="module">
+	        <h4 class="smallHeader">{% trans %}Events{% endtrans %}</h4>
+	        <time datetime="" class="published tip" pubdate>September 13 - 15, 2012</time>
+	        <span class="title">World e-Parliament Conference 2012</span>
+	        <span class="location">Rome, Italy</span>
+	        <a class="viewMore" href="/networking">{% trans %}View More Events and See How You Can Participate{% endtrans %}</a>
+	    </div>
+		-->
+
     </div>
     <div class="clear"></div>
+{% endblock %}
+
+{% block js %}
+	<script>
+		var $recentPosts = $('#recent-posts');
+		$(document).ready(function() {
+			$.ajax({
+				url: "/rss",
+				dataType: "xml",
+				success: function(data) {
+					var $root = $(data.documentElement);
+					$root.find('item').slice(0, 5).each(function(index, elem) {
+						var $item = $(elem);
+						$recentPosts.append(
+							$('<li>').append(
+								$('<a>')
+									.attr("href", $item.find('link').text())
+									.text($item.find('title').text())));
+					});
+				}
+			});
+		});
+	</script>
 {% endblock %}
