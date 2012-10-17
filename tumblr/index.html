@@ -23,8 +23,10 @@
             font-family: Georgia, "Times New Roman", Times, serif;
             font-size: 210%;
             line-height: 29px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
+        .hentry header { margin-bottom: 0.5em; }
+        .hentry header h1 { width: 100%; }
         .hentry p.link {
             border-left: 1px solid #F5F5F2;
             font-size: 120%;
@@ -38,12 +40,18 @@
             float: left;
             font-size: 90%;
             margin-right: 0.5em;
+            margin-bottom: 0.4em;
             padding: 0.3em 1em;
             -webkit-border-radius: 5px;
                -moz-border-radius: 5px;
                     border-radius: 5px;
         }
         .hentry .published abbr { border-bottom: 0; }
+
+        .pager { height: 80px; }
+        .pager .next { float: left; width: 40%; }
+        .pager .previous { float: right; width: 40%; text-align: right; }
+        .pager a { font-size: 120%; }
     </style>
     <script src="http://www.openingparliament.org/static/js/jquery-1.7.2.min.js"></script>
     <!--[if lt IE 9]>
@@ -52,7 +60,7 @@
 </head>
 <body>
     <div id="container">
-        <header>
+        <header role="banner">
             <h1 class="fullIndent">
                 <a class="textReplace" href="http://www.openingparliament.org/">OpeningParliament.org</a>
             </h1>
@@ -85,13 +93,27 @@
                 {block:Posts}
                     <article id="{PostID}" class="hentry clearfix">
 
-                        {block:Title}
-                            <h1 class="entry-title">
-                                {block:PermalinkPage}<a href="{Permalink}">{/block:PermalinkPage}
-                                    {Title}
-                                {block:PermalinkPage}</a>{/block:PermalinkPage}
-                            </h1>
-                        {/block:Title}
+                        <header>
+
+	                        {block:Title}
+	                            <h1 class="entry-title">
+	                                {block:PermalinkPage}<a href="{Permalink}">{/block:PermalinkPage}
+	                                    {Title}
+	                                {block:PermalinkPage}</a>{/block:PermalinkPage}
+	                            </h1>
+	                        {/block:Title}
+
+
+	                        {block:Date}
+	                            <p>Posted <a href="{Permalink}" rel="bookmark" class="published">
+	                                <abbr class="value" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}">
+	                                    {Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}
+	                                </abbr></a>
+	                                by {PostAuthorName}
+	                            </p>
+	                        {/block:Date}
+
+	                    </header>
 
                         <div class="entry-content {PostType}">
 
@@ -169,19 +191,14 @@
                         </div>
 
                         <div class="meta row" data-permalink="{Permalink}">
-                            {block:Date}
-                                <p>Posted <a href="{Permalink}" rel="bookmark" class="published">
-                                    <abbr class="value" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}">
-                                        {Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}
-                                    </abbr>
-                                </a></p>
-                            {/block:Date}
                             {block:ContentSource}
                                 <p>Originally posted by <a href="{SourceURL}">{SourceTitle}</a></p>
                             {/block:ContentSource}
                             <p>
-                                {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a> and {/block:NoteCount}
+                                {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a> and 	{/block:NoteCount}
+                                <!--
                                 <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+                            	-->
                             </p>
                             {block:HasTags}
                                 {block:Tags}
@@ -208,26 +225,29 @@
 
                 {block:Pagination}
                     <div class="pager">
-                        <div class="previous">
-                            {block:PreviousPage}
-                                <a href="{PreviousPage}">Newer</a>
-                            {/block:PreviousPage}
-                        </div>
                         <div class="next">
                             {block:NextPage}
-                                <a href="{NextPage}">Older</a>
+                                <a href="{NextPage}">&lt; Older</a>
                             {/block:NextPage}
+                        </div>
+                        <div class="previous">
+                            {block:PreviousPage}
+                                <a href="{PreviousPage}">Newer &gt;</a>
+                            {/block:PreviousPage}
                         </div>
                     </div>
                 {/block:Pagination}
 
             </div>
             <div class="span4">
-                <h4 class="smallHeader">Events</h4>
-                <time datetime="" class="published tip" pubdate>September 13 - 15, 2012</time>
-                <span class="title">World e-Parliament Conference 2012</span>
-                <span class="location">Rome, Italy</span>
-                <a class="viewMore" href="http://www.openingparliament.org/networking">View More Events and See How You Can Participate</a>
+                <h4 class="smallHeader">Regular Contributors</h4>
+                <p><span class="title">María Baron, LALT Network</span></p>
+                <p><span class="title">Andrew Mandelbaum, NDI</span></p>
+                <p><span class="title">Melissa Ortiz Massó, LALT Network</span></p>
+                <p><span class="title">Daniel Schuman, Sunlight Foundation</span></p>
+                <p><span class="title">Dan Swislow, NDI</span></p>
+                <p><span class="title">John Wonderlich, Sunlight Foundation</span></p>
+                <a class="viewMore" href="http://www.openingparliament.org/contact">Click here to contact the administrators of this blog</a>
             </div>
             <div class="clear"></div>
         </div>
