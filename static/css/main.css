@@ -130,8 +130,8 @@ h6, .h5 { font-weight: bold; font-size: 125%; margin-bottom: 15px; text-transfor
 .smallHeader { font-size: 110%; font-weight: bold; text-transform: uppercase; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 .title { font-size: 120%; display: block; margin-bottom: 5px; color: #5d5856;}
 
-header h1 { width: 276px; height: 30px; margin: 55px 0 15px;}
-header h1 a { width: 276px; height: 30px; background: url(../images/logo.png) top left no-repeat; }
+header[role="banner"] h1 { width: 276px; height: 30px; margin: 55px 0 15px;}
+header[role="banner"] h1 a { width: 276px; height: 30px; background: url(../images/logo.png) top left no-repeat; }
 
 .feature { padding-bottom: 20px; margin-bottom: 10px; border-bottom: 1px solid #f5f5f2;}
 .feature p { color: #736b67; width: 80%; font-size: 170%; font-family: Georgia, "Times New Roman", Times, serif; font-style: oblique; text-align: center; margin: 20px auto 0; line-height: 32px;}
