@@ -31,6 +31,7 @@ class CrappyCache(dict):
         super(CrappyCache, self).__init__(*args, **kwargs)
 
     def __setitem__(self, key, value):
+
         now = datetime.datetime.utcnow()
         super(CrappyCache, self).__setitem__(key, (now, value))
 
@@ -119,7 +120,6 @@ def inject_content():
 
 @app.context_processor
 def inject_admin():
-    print request.authorization
     return {'admin': True if request.authorization else False}
 
 
@@ -224,8 +224,9 @@ def rss():
 
     url = "http://blog.openingparliament.org/rss"
 
-    doc = SCARY_CACHE.get(url)
-    if not doc:
+    if url in SCARY_CACHE:
+        doc = SCARY_CACHE[url]
+    else:
         resp = requests.get(url)
         doc = resp.text
         SCARY_CACHE[url] = doc
