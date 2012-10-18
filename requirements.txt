@@ -6,3 +6,4 @@ gevent
 gunicorn
 newrelic
 requests
+pytest==2.2.4

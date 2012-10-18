@@ -1,4 +1,5 @@
 from functools import wraps
+import datetime
 import json
 import os
 import urlparse
@@ -14,11 +15,43 @@ EMPTY_BLOCK = """<br><br>"""
 
 POSTMARK_KEY = os.environ.get('POSTMARK_KEY', '')
 
-SCARY_CACHE = {}
-
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRETKEY', '1234567890')
 babel = Babel(app)
+
+
+class CrappyCache(dict):
+
+    MINUTE = 60
+    HOUR = 60 * 60
+    DAY = 60 * 60 * 24
+
+    def __init__(self, *args, **kwargs):
+        self.expiration = kwargs.pop("expiration", None)
+        super(CrappyCache, self).__init__(*args, **kwargs)
+
+    def __setitem__(self, key, value):
+        now = datetime.datetime.utcnow()
+        super(CrappyCache, self).__setitem__(key, (now, value))
+
+    def __getitem__(self, key):
+
+        if key in self:
+
+            (then, val) = super(CrappyCache, self).__getitem__(key)
+
+            if self.expiration is None:
+                return val
+
+            now = datetime.datetime.utcnow()
+            delta = now - then
+
+            if delta.seconds < self.expiration:
+                return val
+
+            del self[key]
+
+SCARY_CACHE = CrappyCache(expiration=CrappyCache.MINUTE * 5)
 
 
 #
