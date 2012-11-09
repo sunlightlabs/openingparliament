@@ -2,6 +2,7 @@ from functools import wraps
 import datetime
 import json
 import os
+import re
 import urlparse
 
 from flask import Flask, flash, g, redirect, request, render_template, Response
@@ -15,8 +16,10 @@ EMPTY_BLOCK = """<br><br>"""
 
 POSTMARK_KEY = os.environ.get('POSTMARK_KEY', '')
 
+
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRETKEY', '1234567890')
+
 babel = Babel(app)
 
 
@@ -89,6 +92,16 @@ def get_locale():
         if lang in LANGUAGES:
             return lang
     return request.accept_languages.best_match(LANGUAGES)
+
+
+#
+# template filters
+#
+
+@app.template_filter()
+def slugify(value):
+    value = re.sub('[^\w\s-]', '', value).strip().lower()
+    return re.sub('[-\s]+', '-', value)
 
 
 #

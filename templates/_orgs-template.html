@@ -1,17 +1,30 @@
-<ul class="partners">
-    {% for org in orgs %}
-        <li class="clearfix">
-            {% if org.img %}
-                <img src="/static/images/partners/{{ org.img }}" class="logo">
-            {% endif %}
-            <p>
-                <span class="location">{{ org.country }}</span>
-                {% if org.url %}
-                    <a href="{{ org.url }}" class="org">{{ org.name }}</a>
-                {% else %}
-                    <span class="org">{{ org.name }}</span>
-                {% endif %}
-            </p>
-        </li>
-    {% endfor %}
-</ul>
+<div class="country-list">
+	<form action="">
+		<p>To view organizations for a specific country, select from the following list.</p>
+		<select name="country">
+		{% for country in countries %}
+			<option value="{{ country|slugify }}">{{ country }}</option>
+		{% endfor %}
+		</select>
+	</form>
+</div>
+
+{% for group in orgs|groupby('country') %}
+	<p id="{{ group.grouper|slugify }}" class="location">{{ group.grouper }}</p>
+	<ul class="partners">
+	    {% for org in group.list %}
+	        <li class="clearfix">
+	            {% if org.img %}
+	                <img src="/static/images/partners/{{ org.img }}" class="logo">
+	            {% endif %}
+	            <p>
+	                {% if org.url %}
+	                    <a href="{{ org.url }}" class="org">{{ org.name }}</a>
+	                {% else %}
+	                    <span class="org">{{ org.name }}</span>
+	                {% endif %}
+	            </p>
+	        </li>
+	    {% endfor %}
+	</ul>
+{% endfor %}

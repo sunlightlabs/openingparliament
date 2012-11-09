@@ -253,15 +253,18 @@ p.flash {
 	        border-radius: 5px;
 }
 
-ul.partners { list-style: none; margin: 0; padding: 0; }
+ul.partners { list-style: none; margin: 0 0 5em 0; padding: 0; }
 ul.partners li {
-	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	padding-top: 2em;
 	padding-bottom: 1em;
 }
 ul.partners img.logo { float: right; }
 ul.partners .org { display: block; font-size: 120%; margin-bottom: 0.3em; }
-ul.partners .location {
+
+.organizations .location {
 	font-family: "Georgia", 'Times New Roman', "Times", serif;
+	font-size: 120%;
 	font-style: oblique;
 }
 
@@ -279,6 +282,18 @@ ul.covers img {
 	-webkit-box-shadow: 0 0 8px #ddd;
 	   -moz-box-shadow: 0 0 8px #ddd;
 	        box-shadow: 0 0 8px #ddd;
+}
+
+.country-list {
+	position: absolute;
+	left: 820px;
+}
+.country-list form {
+	border-left: 1px solid #ddd;
+	padding: 1em 0 1em 1em;
+	position: fixed;
+	top: 200px;
+	width: 250px;
 }
 
 .sidebar .module {
