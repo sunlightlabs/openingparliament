@@ -1,12 +1,14 @@
-<div class="country-list">
-	<form action="">
-		<p>To view organizations for a specific country, select from the following list.</p>
-		<select name="country">
-		{% for country in countries %}
-			<option value="{{ country|slugify }}">{{ country }}</option>
-		{% endfor %}
-		</select>
-	</form>
+<div style="position: relative;">
+	<div class="country-list">
+		<form action="">
+			<p>To view organizations for a specific country, select from the following list.</p>
+			<select name="country">
+			{% for country in countries %}
+				<option value="{{ country|slugify }}">{{ country }}</option>
+			{% endfor %}
+			</select>
+		</form>
+	</div>
 </div>
 
 {% for group in orgs|groupby('country') %}
