@@ -18,19 +18,19 @@
         	<ul>
         		<li>
         			<label for="id_name" class="required">Name</label>
-        			<input type="text" name="name" id="id_name" value="{{ form.name }}">
+        			<input type="text" name="name" id="id_name" value="{% if form %}{{ form.name }}{% endif %}">
         		</li>
         		<li>
         			<label for="id_email" class="required">Email</label>
-        			<input type="email" name="email" id="id_email" value="{{ form.email }}">
+        			<input type="email" name="email" id="id_email" value="{% if form %}{{ form.email }}{% endif %}">
         		</li>
         		<li>
         			<label for="id_organization">Organization</label>
-        			<input type="text" name="organization" id="id_organization" value="{{ form.organization }}">
+        			<input type="text" name="organization" id="id_organization" value="{% if form %}{{ form.organization }}{% endif %}">
         		</li>
         		<li>
         			<label for="id_message" class="required">Message</label>
-        			<textarea name="message" id="id_message">{{ form.message }}</textarea>
+        			<textarea name="message" id="id_message">{% if form %}{{ form.message }}{% endif %}</textarea>
         		</li>
         	</ul>
 
