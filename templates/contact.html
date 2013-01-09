@@ -18,23 +18,34 @@
         	<ul>
         		<li>
         			<label for="id_name" class="required">Name</label>
-        			<input type="text" name="name" id="id_name">
+        			<input type="text" name="name" id="id_name" value="{{ form.name }}">
         		</li>
         		<li>
         			<label for="id_email" class="required">Email</label>
-        			<input type="email" name="email" id="id_email">
+        			<input type="email" name="email" id="id_email" value="{{ form.email }}">
         		</li>
         		<li>
         			<label for="id_organization">Organization</label>
-        			<input type="text" name="organization" id="id_organization">
+        			<input type="text" name="organization" id="id_organization" value="{{ form.organization }}">
         		</li>
         		<li>
         			<label for="id_message" class="required">Message</label>
-        			<textarea name="message" id="id_message"></textarea>
+        			<textarea name="message" id="id_message">{{ form.message }}</textarea>
         		</li>
         	</ul>
+
 			<p><small>* denotes a required field</small></p>
-        	<input type="submit" value="Send Message" class="btnish">
+
+			<div style="margin-bottom: 20px;">
+				<script src="http://www.google.com/recaptcha/api/challenge?k=6LcGVtsSAAAAAIOwtbZqt2ItHSsv6xHZiA1ffbZw"></script>
+	  			<noscript>
+	     			<iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcGVtsSAAAAAIOwtbZqt2ItHSsv6xHZiA1ffbZw" height="300" width="500" frameborder="0"></iframe><br>
+	     			<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+	     			<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+	  			</noscript>
+	  		</div>
+
+			<input type="submit" value="Send Message" class="btnish">
         </form>
 
     </div>

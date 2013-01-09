@@ -15,6 +15,8 @@ LANGUAGES = ('en', 'es')
 EMPTY_BLOCK = """<br><br>"""
 
 POSTMARK_KEY = os.environ.get('POSTMARK_KEY', '')
+RECAPTCHA_PUBLIC = os.environ.get('RECAPTCHA_PUBLIC', '')
+RECAPTCHA_PRIVATE = os.environ.get('RECAPTCHA_PRIVATE', '')
 
 
 app = Flask(__name__)
@@ -149,6 +151,28 @@ def index():
 def contact():
 
     if request.method == 'POST':
+
+        # verify captcha
+
+        captcha_url = "http://www.google.com/recaptcha/api/verify"
+
+        params = {
+            "privatekey": RECAPTCHA_PRIVATE,
+            "remoteip": "",
+            "challenge": request.form['recaptcha_challenge_field'],
+            "response": request.form['recaptcha_response_field'],
+        }
+
+        response = requests.post(captcha_url, params=params)
+
+        print response.text
+
+        if not response.text.startswith("true"):
+            context = {"form": request.form}
+            flash('Sorry, your captcha was incorrect. Please try again.')
+            return render_template('contact.html', **context)
+
+        # send email
 
         msg = "%s <%s>\n" % (request.form['name'], request.form['email'])
         if request.form['organization']:
