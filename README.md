@@ -8,8 +8,3 @@ A forum intended to help connect the world's civic organizations engaged in moni
     python web.py
 
 Visit site at <http://localhost:8000>
-
-
-
-
-OSCE Parliamentary Assembly,International,http://www.oscepa.org/,oscepa.png
