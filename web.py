@@ -197,6 +197,11 @@ def contact():
     return render_template('contact.html')
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 @app.route('/declaration')
 def declaration():
     return render_template('declaration.html')
