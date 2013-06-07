@@ -1,5 +1,5 @@
 name,country,url,img
-Election Monitoring and Democracy Studies Center (EMDS),Azerbaijan,http://www.smdt.az/en/,smdt.png
+Election Monitoring and Democracy Studies Center (EMDS),Azerbaijan,http://www.smdt.az/index.php?lang=az,smdt.png
 "Free and Fair Elections Foundation, Afghanistan",Afghanistan,http://fefa.org.af,fefa.png
 Center for Civic Initiatives (CCI),Bosnia and Herzegovina,http://www.ccibh.org,cci.png
 Committee for Free and Fair Elections in Cambodia (COMFREL),Cambodia,http://www.comfrel.org/eng,comfrel.png
@@ -15,8 +15,8 @@ K-Monitor Watchdog for Public Funds,Hungary,http://www.kmonitor.hu,kmonitor.png
 Openpolis,Italy,http://www.openpolis.it,openpolis.png
 Al-Quds Center for Political Studies,Jordan,http://www.alqudscenter.org/english,alquds.png
 Jordanian Parliament Monitor,Jordan,http://www.jpm.jo,jpm.png
-Coalition for Democracy and Civil Society,Kyrgyzstan,http://www.dialog.kg/en,cdcs.png
-Latin American Network for Legislative Transparency (LALT Network),Latin America,http://www.transparencialegislativa.org,lalt.png
+Coalition for Democracy and Civil Society,Kyrgyzstan,http://www.coalition.kg/,cdcs.png
+Latin American Network for Legislative Transparency (LALT Network),Latin America,http://transparencialegislativa.ciudadanointeligente.org/,lalt.png
 Lebanese Parliamentary Monitor,Lebanon,http://www.lpmonitor.org,lebanesemonitor.png
 Nahwa Al-Muwatiniya,Lebanon,http://www.na-am.org/a,nahwaalmuwatiniya.png
 Liberia Democracy Watch,Liberia,http://www.liberiademocracywatch.org,ldw.png
@@ -25,7 +25,7 @@ Transparency International Lithuania,Lithuania,http://www.transparency.lt,tilith
 Centar za Demokratsku Tranziciju (CDT),Montenegro,http://www.cdtmn.org,cdt.png
 Stowarzyszenie 61 (Association 61),Poland,http://www.mamprawowiedziec.pl,61.png
 Foundation ePaństwo,Poland,http://www.sejmometr.pl,epanstwo.png
-Center for Research Transparency and Accountability,Serbia,http://www.crta.rs/wp/en,crta.png
+Center for Research Transparency and Accountability,Serbia,http://www.crta.rs/wp/en/,crta.png
 Otvoreni Parliament (Open Parliament),Serbia,http://www.otvoreniparlament.rs,otvoreni.png
 Transparency International Slovakia,Slovakia,http://www.transparency.sk,tislovakia.png
 Parliamentary Monitoring Group,South Africa,http://www.pmg.org.za,pmg.png
@@ -72,12 +72,12 @@ Kosovo Democratic Institute (KDI),Kosovo,http://www.kdi-kosova.org/en/,kdi.png
 Transparency International Bangladesh,Bangladesh,http://ti-bangladesh.org/,tibangladesh.png
 Africa Leadership Institute (AFLI),Uganda,http://www.aflia.org,ali.png
 Al Bawsala,Tunisia,http://www.albawsala.com/,albawsala.png
-Social Development Network (SODNET),Kenya,http://www.sodnet.org,sodnet.png
+Social Development Network (SODNET),Kenya,,sodnet.png
 InfoNET,Kenya,http://www.infonet.or.ke,infonet.png
 Muslims for Human Rights (MUHURI),Kenya,http://www.muhuri.org,muhuri.png
 Citizen Congress Watch (CCW),Taiwan,http://www.ccw.org.tw/,ccw.png
 Club JADE,France,http://www.club-jade.fr,clubjade.png
-KohoVolit.eu (Czechia),Czech Republic,http://cs.kohovolit.eu,kohovolit.png
+KohoVolit.eu (Czechia),Czech Republic,http://cs.kohovolit.eu/,kohovolit.png
 KohoVolit.eu (Slovakia),Slovakia,http://sk.kohovolit.eu,kohovolit.png
 GovTrack.us,United States,http://www.govtrack.us,govtrack.png
 "Hasadna" (The Public Knowledge Workshop),Israel,http://www.hasadna.org.il/en/,hasadna.png
@@ -87,8 +87,8 @@ Centre for Parliamentary Studies/Qendra e Studimeve Parlamentare,Albania,http://
 NAYMOTE Partners for Democratic Development,Liberia,http://www.naymote.com,naymote.png
 Visión Legislativa,Mexico,http://www.visionlegislativa.com,vl.png
 Transparence International France,France,http://www.transparence-france.org/,tifrance.png
-Bulgarian Association for the Promotion of Citizens' Initiative,Bulgaria,http://www.bapci.org,bapci.png
-Kuwait Transparency Society,Kuwait,http://www.transparency-kuwait.org/,kts.png
+Bulgarian Association for the Promotion of Citizens' Initiative,Bulgaria,,bapci.png
+Kuwait Transparency Society,Kuwait,,kts.png
 OpenAustralia Foundation,Australia,http://www.openaustraliafoundation.org.au/,oaf.png
 Centre National d’Appui au Développement et à la Participation Populaire (CENADEP),Democratic Republic of the Congo,http://www.gouvernancepourtous.cd/,cenadep.png
 Qué hacen los diputados,Spain,http://www.quehacenlosdiputados.net,qhld.png
