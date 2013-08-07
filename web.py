@@ -6,7 +6,7 @@ import re
 import urlparse
 
 from flask import Flask, flash, g, redirect, request, render_template, Response
-from flaskext.babel import Babel
+from flask.ext.babel import Babel
 import postmark
 import pymongo
 import requests
