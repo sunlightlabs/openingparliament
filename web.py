@@ -219,8 +219,8 @@ def organizations():
 
 @app.route('/press')
 def press():
-    return render_template('press.html')
-
+    # return render_template('press.html')
+    return redirect('/')
 
 @app.route('/export')
 def export():
