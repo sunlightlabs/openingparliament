@@ -2,14 +2,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <base target='_blank' />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <meta property="og:site_name" content="Opening Parliament">
     <meta property="og:type" content="website">
-	<meta property="og:locale" content="en_US">
-	<meta property="fb:admins" content="7812952">
-	{block:PermalinkPage}
+    <meta property="og:locale" content="en_US">
+    <meta property="fb:admins" content="7812952">
+    {block:PermalinkPage}
         {block:PostSummary}
             <meta property="og:title" content="{PostSummary}">
             <meta property="og:description" content="{PostSummary}">
@@ -73,7 +74,7 @@
         ul.contributors li {
             border-bottom: 1px solid #f6f7f2;
             margin-bottom: 0;
-        	padding: 1em;
+            padding: 1em;
         }
         ul.contributors li:hover { background-color: #f6f7f2; border-bottom: 1px solid #ddd; }
         ul.contributors .contributor { display: block; }
@@ -87,6 +88,8 @@
         .pager .previous { float: right; width: 40%; text-align: right; }
         .pager a { font-size: 120%; }
 
+        #search-form input { display: block; margin: 5px 0; }
+
         #disqus_thread { margin-top: 3em; }
 
     </style>
@@ -95,6 +98,9 @@
     <![endif]-->
 </head>
 <body>
+
+<script type=”text/javascript” src=”http://platform.twitter.com/widgets.js”></script>
+
     <div id="container">
         <header role="banner">
             <h1 class="fullIndent">
@@ -103,10 +109,11 @@
             <nav>
                 <ul>
                     <li id="blog"><a href="http://blog.openingparliament.org/">Blog</a></li>
+                    <li id="about"><a href="http://www.openingparliament.org/about">About</a></li>
                     <li id="declaration"><a href="http://www.openingparliament.org/declaration">Declaration</a></li>
                     <li id="networking"><a href="http://www.openingparliament.org/networking">Networking</a></li>
                     <li id="organizations"><a href="http://www.openingparliament.org/organizations">Supporting Organizations</a></li>
-                    <li id="contact"><a href="http://www.openingparliament.org/press">Press</a></li>
+                    <li id="press"><a href="http://www.openingparliament.org/press">Press</a></li>
                     <li id="contact"><a href="http://www.openingparliament.org/contact">Contact</a></li>
                 </ul>
             </nav>
@@ -131,29 +138,33 @@
 
                         <header>
 
-	                        {block:Title}
-	                            <h1 class="entry-title">
-	                                <a href="{Permalink}">{Title}</a>
-	                            </h1>
-	                        {/block:Title}
+                            {block:Title}
+                                <h1 class="entry-title">
+                                    <a href="{Permalink}">{Title}</a>
+                                </h1>
+                            {/block:Title}
 
+                            {block:Date}
+                                <p>Posted <a href="{Permalink}" rel="bookmark" class="published">
+                                    <abbr class="value" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}">
+                                        {Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}
+                                    </abbr></a>
+                                    by <span class="author">{PostAuthorName}</span>
+                                </p>
+                            {/block:Date}
 
-	                        {block:Date}
-	                            <p>Posted <a href="{Permalink}" rel="bookmark" class="published">
-	                                <abbr class="value" title="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}">
-	                                    {Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}
-	                                </abbr></a>
-	                                by <span class="author">{PostAuthorName}</span>
-	                            </p>
-	                        {/block:Date}
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-via="OpenParl">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-	                    </header>
+                        </header>
 
                         <div class="entry-content {PostType}">
 
                             {block:Text}
                                 {Body}
                             {/block:Text}
+
+                            {block:More}<p class="read-more"><a href="{Permalink}#more"><big><strong>Click here to read more.</big></strong></a></p><a name="more"></a>{/block:More}
 
                             {block:Photo}
                                 {LinkOpenTag}
@@ -229,7 +240,7 @@
                                 <p>Originally posted by <a href="{SourceURL}">{SourceTitle}</a></p>
                             {/block:ContentSource}
                             <p>
-                                {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a> and 	{/block:NoteCount}
+                                {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a> and   {/block:NoteCount}
                                 <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
                             </p>
                             {block:HasTags}
@@ -273,66 +284,222 @@
             </div>
             <div class="span4">
 
-	            <div class="sidebar-module clearfix">
-					<h4 class="smallHeader">Tags</h4>
-					<!--Tumblr Tag Cloud [2012-10-17]-->
-					<script type="text/javascript" src="http://rive.rs/javascripts/tumblr.min.js?css=default&amp;minsize=100&amp;maxsize=210"></script>
-				</div>
+                <div class="sidebar-module">
+                    <form action="/search" method="get" id="search-form">
+                        <h4 class="smallHeader">Search the Blog</h4>
+                        <input type="text" name="q" value="{SearchQuery}">
+                        <input type="submit" value="Search" class="btn">
+                    </form>
+                </div>
 
-            	<div class="sidebar-module">
-	                <h4 class="smallHeader">Regular Contributors</h4>
-	                <ul class="contributors">
-	                	<li>
-	                		<a class="contributor"
-	                				data-username=""
-	                				href="http://twitter.com/RedLTL">
-	                			María Baron
-	                		</a>
-	                		<a class="org" href="http://www.transparencialegislativa.org/">Latin American Network for Legislative Transparency</a>
-	                	</li>
-	                	<li>
-	                		<a class="contributor"
-	                				data-username="andrewmandelbaum"
-	                				href="http://twitter.com/agm3dc">
-	                			Andrew Mandelbaum
-	                		</a>
-	                		<a class="org" href="http://www.ndi.org/">National Democratic Institute</a>
-	                	</li>
-	                	<li>
-	                		<a class="contributor"
-	                				data-username="dragon-abeja-caballo"
-	                				href="http://twitter.com/melamalo">
-	                			Melissa Ortiz Massó
-	                		</a>
-	                		<a class="org" href="http://www.transparencialegislativa.org/">Latin American Network for Legislative Transparency</a>
-	                	</li>
-	                	<li>
-	                		<a class="contributor"
-	                				data-username="daniel-schuman"
-	                				href="http://twitter.com/danielschuman">
-	                			Daniel Schuman
-	                		</a>
-	                		<a class="org" href="http://sunlightfoundation.com/">Sunlight Foundation</a>
-	                	</li>
-	                	<li>
-	                		<a class="contributor"
-	                				data-username="danswislow"
-	                				href="http://twitter.com/danswislow">
-	                			Dan Swislow
-	                		</a>
-	                		<a class="org" href="http://www.ndi.org/">National Democratic Institute</a>
-	                	</li>
-	                	<li>
-	                		<a class="contributor"
-	                				data-username=""
-		                			href="http://twitter.com/JohnWonderlich">
-		                		John Wonderlich
-		                	</a>
-	                		<a class="org" href="http://sunlightfoundation.com/">Sunlight Foundation</a>
-	                	</li>
-	                </ul>
-	                <p class="blog-contact"><a href="http://www.openingparliament.org/contact">Click here to contact the administrators</a></p>
-	            </div>
+                <div class="sidebar-module clearfix">
+                    <a href="http://www.twitter.com/OpenParl"><img src="http://i.imgur.com/16DIb.png" alt="Follow OpenParl on Twitter" width="250"></a>
+                    <p></p>
+                    <a href="http://www.facebook.com/OpeningParliament"><img src="http://i.imgur.com/XNVBx.png" alt="Like us on Facebook" width="250"></a>
+                    <p>
+                    </p>
+                    <h4 class="smallHeader">Tags</h4>
+                    <!--Tumblr Tag Cloud [2012-10-17]-->
+                    <script type="text/javascript" src="http://rive.rs/javascripts/tumblr.min.js?css=default&amp;minsize=100&amp;maxsize=210"></script>
+                </div>
+
+                <div class="sidebar-module">
+                    <h4 class="smallHeader">Contributors</h4>
+                    <ul class="contributors">
+                        <li>
+                            <a class="contributor"
+                                    data-username="mariadirectorio"
+                                    href="http://twitter.com/RedLTL">
+                                María Baron
+                            </a>
+                            <a class="org" href="http://www.transparencialegislativa.org/">Latin American Network for Legislative Transparency</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="gregbrownm"
+                                    href="http://twitter.com/gregbrownm">
+                                Greg Brown
+                            </a>
+                            <a class="org" href="http://www.sunlightfoundation.com/">Sunlight Foundation (USA)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="vukaopblog"
+                                    href="http://twitter.com/vukac">
+                                Vukosava Crnjanski
+                            </a>
+                            <a class="org" href="http://otvoreniparlament.rs/">Otvoreni Parlament (Serbia)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="agustinadeluca"
+                                    href="https://twitter.com/agus_deluca">
+                                Agustina De Luca
+                            </a>
+                            <a class="org" href="http://www.directoriolegislativo.org/">Fundación Directorio Legislativo (Argentina)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="diegoopblog"
+                                    href="https://twitter.com/Diaziturbe">
+                                Diego Díaz Iturbe
+                            </a>
+                            <a class="org" href="http://www.impactolegislativo.org.mx/sitio/">Impacto Legislativo (Mexico)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="gonzaloopblog"
+                                    href="https://twitter.com/miguelgonzalo">
+                                Miguel Ángel Gonzalo
+                            </a>
+                            <a class="org" href="http://www.congreso.es/">Congress of Spain</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="kamilopblog"
+                                    href="https://twitter.com/KohoVolitEU">
+                                Kamil Gregor
+                            </a>
+                            <a class="org" href="http://www.kohovolit.eu/">KohoVolit.eu (Czech Republic)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="karolisgranickas"
+                                    href="https://twitter.com/Granickas">
+                                Karolis Granickas
+                            </a>
+                            <a class="org" href="http://transparency.lt/">Transparency International Lithuania</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="ivetaopblog"
+                                    href="https://twitter.com/IvetaKazoka">
+                                Iveta Kažoka
+                            </a>
+                            <a class="org" href="http://www.providus.lv/public/index_en.html">PROVIDUS (Latvia)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="krivokapicopblog"
+                                    href="https://twitter.com/oscepa">
+                                Ranko Krivokapic
+                            </a>
+                            <a class="org" href="http://www.oscepa.org/">OSCE Parliamentary Assembly/ Parliament of Montenegro</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="andrewmandelbaum"
+                                    href="http://twitter.com/agm3dc">
+                                Andrew Mandelbaum
+                            </a>
+                            <a class="org" href="http://www.ndi.org/">National Democratic Institute</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="dragon-abeja-caballo"
+                                    href="http://twitter.com/melamalo">
+                                Melissa Ortiz Massó
+                            </a>
+                            <a class="org" href="http://www.transparencialegislativa.org/">Latin American Network for Legislative Transparency</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="konklone"
+                                    href="http://twitter.com/konklone">
+                                Eric Mill
+                            </a>
+                            <a class="org" href="http://www.sunlightfoundation.com/">Sunlight Foundation (USA)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="naymoteopblog"
+                                    href="http://twitter.com/AUGUSTBOBY">
+                                NAYMOTE Staff
+                            </a>
+                            <a class="org" href="http://www.naymote.com/">National Youth Movement for Transparent Elections (Liberia)</a>
+                        </li>
+                         <li>
+                            <a class="contributor"
+                                    data-username="dustinpalmer"
+                                    href="http://twitter.com/ndigov">
+                                Dustin Palmer
+                            </a>
+                            <a class="org" href="http://www.ndi.org.com/">National Democratic Institute</a>
+                        </li>
+                         <li>
+                            <a class="contributor"
+                                    data-username="tiagoopblog"
+                                    href="http://twitter.com/participatory">
+                                Tiago Peixoto
+                            </a>
+                            <a class="org" href="http://www.worldbank.org/">World Bank</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="rcopblog"
+                                    href="http://twitter.com/RegardsCitoyens">
+                                Regards Citoyens Staff
+                            </a>
+                            <a class="org" href="http://www.regardscitoyens.org/">Regards Citoyens (France)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="chakshu-roy"
+                                    href="http://twitter.com/PRSLegislative">
+                                Chakshu Roy
+                            </a>
+                            <a class="org" href="http://www.prsindia.org/">PRS Legislative Research (India)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="schmidtopblog">
+                                Markus Schmidt
+                            </a>
+                            <a class="org">Swiss Federal Institute of Technology</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="daniel-schuman"
+                                    href="http://twitter.com/danielschuman">
+                                Daniel Schuman
+                            </a>
+                            <a class="org" href="http://www.citizensforethics.org/">Citizens for Responsibility and Ethics in Washington (USA)</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="danswislow"
+                                    href="http://twitter.com/danswislow">
+                                Dan Swislow
+                            </a>
+                            <a class="org" href="http://www.ndi.org/">National Democratic Institute</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="veitopblog"
+                                    href="https://twitter.com/GilbertSendugwa">
+                                Peter Veit and Gilbert Sendugwa
+                            </a>
+                            <a class="org" href="http://insights.wri.org/">World Resources Institute/Africa Freedom of Information Center</a>
+                        </li>
+                         <li>
+                            <a class="contributor"
+                                    data-username="grantcv1"
+                                    href="https://twitter.com/grantcv1">
+                                Grant Vergottini
+                            </a>
+                            <a class="org" href="http://xcential.com/navigate.php">Xcential Group</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username=""
+                                    href="http://twitter.com/JohnWonderlich">
+                                John Wonderlich
+                            </a>
+                            <a class="org" href="http://sunlightfoundation.com/">Sunlight Foundation (USA)</a>
+                        </li>
+                    </ul>
+                    <p class="blog-contact"><a href="http://www.openingparliament.org/contact">Click here to contact the administrators</a></p>
+                </div>
 
             </div>
             <div class="clear"></div>
@@ -354,49 +521,49 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script>
 
-    	$().ready(function() {
-    		var users = {};
-    		$('.contributor').each(function(index, elem) {
-    			var $elem = $(elem);
-    			var username = $elem.data('username') || $elem.text();
-    			users[username] = {
-					fullName: $elem.text(),
-					url: $elem.attr('href')
-				};
-    		});
-    		$('.hentry .author').each(function(index, elem) {
-    			var $elem = $(elem);
-    			var user = users[$elem.text()];
-    			if (user) {
-    				var $a = $('<a>')
-    					.attr('href', user.url)
-    					.text(user.fullName);
-    				$elem.empty().append($a);
-    			}
-    		});
-    	});
+        $().ready(function() {
+            var users = {};
+            $('.contributor').each(function(index, elem) {
+                var $elem = $(elem);
+                var username = $elem.data('username') || $elem.text();
+                users[username] = {
+                    fullName: $elem.text(),
+                    url: $elem.attr('href')
+                };
+            });
+            $('.hentry .author').each(function(index, elem) {
+                var $elem = $(elem);
+                var user = users[$elem.text()];
+                if (user) {
+                    var $a = $('<a>')
+                        .attr('href', user.url)
+                        .text(user.fullName);
+                    $elem.empty().append($a);
+                }
+            });
+        });
     </script>
 
-	<script>
+    <script>
 
-		var disqus_shortname = 'openingparliament';
+        var disqus_shortname = 'openingparliament';
 
-		{block:PermalinkPage}
-	        (function() {
-	            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-	            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	        })();
-		{/block:PermalinkPage}
+        {block:PermalinkPage}
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        {/block:PermalinkPage}
 
-   	    (function () {
+        (function () {
             var s = document.createElement('script'); s.async = true;
             s.type = 'text/javascript';
             s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
 
-	</script>
+    </script>
 
     <script>
         var _gaq = _gaq || [];
