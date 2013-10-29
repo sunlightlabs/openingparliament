@@ -22,6 +22,8 @@
 
     <meta name="description" content="{MetaDescription}">
 
+    <meta name="google-site-verification" content="eUgAIlq5KbvsVIFUe8NWRuZvh_6CMZdlXuRkbJmJHUk">
+
     <title>{block:PostTitle}{PostTitle} | {/block:PostTitle}Opening Parliament</title>
     <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
     <link rel="alternate" type="application/rss+xml" title="Opening Parliament" href="http://www.openingparliament.org/rss">
@@ -92,9 +94,10 @@
         }
         .post-share iframe { display: inline; float: left; }
 
-        #search-form input { display: block; margin: 5px 0; }
-
         #disqus_thread { margin-top: 3em; }
+
+        #search-container .gsc-search-button { width: 13px; }
+        #search-container .gsc-input { box-shadow: none; }
 
     </style>
     <!--[if lt IE 9]>
@@ -302,12 +305,20 @@
             </div>
             <div class="span4">
 
-                <div class="sidebar-module">
-                    <form action="/search" method="get" id="search-form" target="_self">
-                        <h4 class="smallHeader">Search the Blog</h4>
-                        <input type="text" name="q" value="{SearchQuery}">
-                        <input type="submit" value="Search" class="btn">
-                    </form>
+                <div class="sidebar-module" id="search-container">
+                    <h4 class="smallHeader">Search</h4>
+                    <script>
+                        (function() {
+                            var cx = '013835834690235175866:n5ek89cc7sk';
+                            var gcse = document.createElement('script');
+                            gcse.type = 'text/javascript';
+                            gcse.async = true;
+                            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(gcse, s);
+                        })();
+                    </script>
+                    <gcse:searchbox-only></gcse:searchbox-only>
                 </div>
 
                 <div class="sidebar-module">
@@ -439,6 +450,14 @@
                         </li>
                          <li>
                             <a class="contributor"
+                                    data-username="alinaostling"
+                                    href="https://twitter.com/AlinaOstling">
+                                Alina Ostling
+                            </a>
+                            <a class="org" href="http://www.naymote.com/">European University Institute</a>
+                        </li>
+                         <li>
+                            <a class="contributor"
                                     data-username="dustinpalmer"
                                     href="http://twitter.com/ndigov">
                                 Dustin Palmer
@@ -489,6 +508,14 @@
                                     data-username="danswislow"
                                     href="http://twitter.com/danswislow">
                                 Dan Swislow
+                            </a>
+                            <a class="org" href="http://www.ndi.org/">National Democratic Institute</a>
+                        </li>
+                        <li>
+                            <a class="contributor"
+                                    data-username="arianatuckey"
+                                    href="http://twitter.com/ndigov">
+                                Ariana Tuckey
                             </a>
                             <a class="org" href="http://www.ndi.org/">National Democratic Institute</a>
                         </li>
