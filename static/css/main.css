@@ -136,7 +136,7 @@ header[role="banner"] h1 a { width: 276px; height: 30px; background: url(../imag
 .feature { padding-bottom: 20px; margin-bottom: 10px; border-bottom: 1px solid #f5f5f2;}
 .feature p { color: #736b67; width: 80%; font-size: 170%; font-family: Georgia, "Times New Roman", Times, serif; font-style: oblique; text-align: center; margin: 20px auto 0; line-height: 32px;}
 nav { background: url(../images/bg_nav.jpg) top left no-repeat; margin-bottom: 60px; height: 53px; padding-left: 15px; }
-nav li { padding: 17px 25px; float: left; font-size: 110%; text-align: center; }
+nav li { padding: 17px 17px; float: left; font-size: 110%; text-align: center; }
 nav li a:link, nav li a:visited, nav li a:active { color: #666361; text-align: center; }
 nav li:hover { font-weight: bold; }
 

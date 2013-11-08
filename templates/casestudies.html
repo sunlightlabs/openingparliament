@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Case Studies - {{ super() }}{% endblock %}
+
+{% block content %}
+
+    <div class="span6 fullIndent">
+
+        <h2>Case Studies</h2>
+
+        <ul>
+            <li><h5><a href="http://blog.openingparliament.org/post/63069974041/case-study-6-parlement-citoyens">Parlement &amp; Citoyens</a></h5></li>
+
+            <li><h5><a href="http://blog.openingparliament.org/post/60749859717/case-study-5-brazils-e-democracia-project">Brazil’s e-Democracia project</a></h5></li>
+            <li><h5><a href="http://blog.openingparliament.org/post/59109079880/case-study-4-al-bawsalas-web-platform-marsad-tn">Al Bawsala’s web platform Marsad.tn</a></h5></li>
+            <li><h5><a href="http://blog.openingparliament.org/post/58419048639/case-study-3-parliament-watch">Parliament Watch</a></h5></li>
+            <li><h5><a href="http://blog.openingparliament.org/post/57073563917/case-study-2-mysociety-alaveteli">mySociety &amp; Alaveteli</a></h5></li>
+            <li><h5><a href="http://blog.openingparliament.org/post/56141262721/pildat-performance-monitoring-of-national-assembly-of">PILDAT: Performance monitoring of National Assembly of Pakistan from citizens perspective</a></h5></li>
+        </ul>
+
+    </div>
+    <div class="span6">
+
+        <p style="margin-top: 5em;">Opening Parliament has created a series of case studies on transparency and accountability tools that PMOs have used that can be replicated or serve as models for organizations in different contexts. To contribute a case study on a project that your organization has created, please fill out the <a href="https://docs.google.com/forms/d/1hF5r_reslRKmWM8QF9ZhhKAgikjuMTdUcN_rD4jAyUM/viewform">template</a> and email Dustin Palmer at <a href="mailto:dpalmer@ndi.org">dpalmer@ndi.org</a> with any questions.</p>
+
+        <div class="editable">
+            {{ content|safe }}
+        </div>
+
+    </div>
+    <div class="clear"></div>
+{% endblock %}

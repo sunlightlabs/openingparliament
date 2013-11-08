@@ -202,6 +202,11 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/casestudies')
+def casestudies():
+    return render_template('casestudies.html')
+
+
 @app.route('/declaration')
 def declaration():
     return render_template('declaration.html')
