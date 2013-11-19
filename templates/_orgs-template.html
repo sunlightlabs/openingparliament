@@ -12,22 +12,22 @@
 	</div>
 </div>
 
-{% for group in orgs|groupby('country') %}
+{%- for group in orgs|groupby('country') %}
 	<p id="{{ group.grouper|slugify }}" class="location">{{ group.grouper }}</p>
 	<ul class="partners">
-	    {% for org in group.list %}
+	    {%- for org in group.list %}
 	        <li class="clearfix">
-	            {% if org.img %}
+	            {%- if org.img %}
 	                <img src="/static/images/partners/{{ org.img }}" class="logo">
-	            {% endif %}
+	            {%- endif %}
 	            <p>
-	                {% if org.url %}
+	                {%- if org.url %}
 	                    <a href="{{ org.url }}" class="org">{{ org.name }}</a>
-	                {% else %}
+	                {%- else %}
 	                    <span class="org">{{ org.name }}</span>
-	                {% endif %}
+	                {%- endif %}
 	            </p>
 	        </li>
-	    {% endfor %}
+	    {%- endfor %}
 	</ul>
-{% endfor %}
+{%- endfor %}
