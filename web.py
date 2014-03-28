@@ -183,7 +183,7 @@ def contact():
             'api_key': POSTMARK_KEY,
             'sender': 'contact@sunlightfoundation.com',
             'reply_to': '%s' % request.form['email'],
-            'to': 'johnwonderlich@gmail.com, amandelbaum@ndi.org, dswislow@ndi.org, psecchi@directoriolegislativo.org, melissa@fundar.org.mx, gbrown@sunlightfoundation.com, jkeseru@sunlightfoundation.com',
+            'to': 'johnwonderlich@gmail.com, amandelbaum@ndi.org, dswislow@ndi.org, melissa@fundar.org.mx, gbrown@ndi.org, jkeseru@sunlightfoundation.com',
             'bcc': 'jcarbaugh@sunlightfoundation.com',
             'subject': '[OpeningParliament.org] contact: %s <%s>' % (request.form['name'], request.form['email']),
             'text_body': msg,
