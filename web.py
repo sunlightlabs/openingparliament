@@ -212,6 +212,11 @@ def declaration():
     return render_template('declaration.html')
 
 
+@app.route('/glow')
+def glow():
+    return render_template('glow.html')
+
+
 @app.route('/networking')
 def networking():
     return render_template('networking.html')

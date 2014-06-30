@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Global Legislative Openness Week - {{ super() }}{% endblock %}
+
+{% block content %}
+    <div class="span8 fullIndent">
+        <div class="editable">
+            {{ content|safe }}
+        </div>
+    </div>
+    <div class="span4">
+        Sidebar stuff?
+    </div>
+    <div class="clear"></div>
+{% endblock %}
