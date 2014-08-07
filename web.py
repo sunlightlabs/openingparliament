@@ -214,7 +214,8 @@ def declaration():
 
 @app.route('/glow')
 def glow():
-    return render_template('glow.html')
+    # return render_template('glow.html')
+    return redirect('http://openparl2014.org/')
 
 
 @app.route('/networking')
