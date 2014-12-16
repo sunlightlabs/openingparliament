@@ -301,3 +301,5 @@ ul.covers img {
 }
 
 #recent-posts { list-style: none; margin: 0; padding: 0; }
+
+#google_translate_element { float: right; margin-top: -42px; padding-right: 40px; }
