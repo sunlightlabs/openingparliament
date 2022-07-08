@@ -1,6 +1,6 @@
 Flask
 Flask-Babel
-pymongo==1.9
+pymongo==2.5.2
 python-postmark
 gevent
 gunicorn
